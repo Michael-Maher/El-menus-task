@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1E8FA66A1690B4F1DC491F /* Pods_El_Menus_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECFB0F0047B8B17C0221CD2 /* Pods_El_Menus_Task.framework */; };
 		4CE8976423E9AD6100989A84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976323E9AD6100989A84 /* AppDelegate.swift */; };
 		4CE8976623E9AD6100989A84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976523E9AD6100989A84 /* SceneDelegate.swift */; };
-		4CE8976823E9AD6100989A84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976723E9AD6100989A84 /* ViewController.swift */; };
+		4CE8976823E9AD6100989A84 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976723E9AD6100989A84 /* HomeViewController.swift */; };
 		4CE8976B23E9AD6100989A84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8976923E9AD6100989A84 /* Main.storyboard */; };
 		4CE8976E23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976C23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld */; };
 		4CE8977023E9AD6400989A84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8976F23E9AD6400989A84 /* Assets.xcassets */; };
 		4CE8977323E9AD6400989A84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8977123E9AD6400989A84 /* LaunchScreen.storyboard */; };
 		4CE8977E23E9AD6400989A84 /* El_Menus_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8977D23E9AD6400989A84 /* El_Menus_TaskTests.swift */; };
 		4CE8978923E9AD6400989A84 /* El_Menus_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8978823E9AD6400989A84 /* El_Menus_TaskUITests.swift */; };
+		4CE897DD23EA090800989A84 /* TagsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE897DC23EA090800989A84 /* TagsCollectionCell.swift */; };
+		55059FE19D0E2B114DA39B31 /* Pods_El_Menus_Task_El_Menus_TaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9903AEC74ECB7A16DB7F1C9B /* Pods_El_Menus_Task_El_Menus_TaskUITests.framework */; };
+		E5B19249A3233EF19064E05B /* Pods_El_Menus_TaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDC3CE2A777F66506E839DB /* Pods_El_Menus_TaskTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EDC3CE2A777F66506E839DB /* Pods_El_Menus_TaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_El_Menus_TaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8976023E9AD6100989A84 /* El Menus Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "El Menus Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8976323E9AD6100989A84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE8976523E9AD6100989A84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4CE8976723E9AD6100989A84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CE8976723E9AD6100989A84 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4CE8976A23E9AD6100989A84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CE8976D23E9AD6100989A84 /* El_Menus_Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = El_Menus_Task.xcdatamodel; sourceTree = "<group>"; };
 		4CE8976F23E9AD6400989A84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +56,15 @@
 		4CE8978423E9AD6400989A84 /* El Menus TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "El Menus TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8978823E9AD6400989A84 /* El_Menus_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = El_Menus_TaskUITests.swift; sourceTree = "<group>"; };
 		4CE8978A23E9AD6400989A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CE897DC23EA090800989A84 /* TagsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionCell.swift; sourceTree = "<group>"; };
+		6DBD3396434D79714486BA71 /* Pods-El Menus TaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Menus TaskTests.debug.xcconfig"; path = "Target Support Files/Pods-El Menus TaskTests/Pods-El Menus TaskTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F2287E4D885586CA7408250 /* Pods-El Menus Task-El Menus TaskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Menus Task-El Menus TaskUITests.debug.xcconfig"; path = "Target Support Files/Pods-El Menus Task-El Menus TaskUITests/Pods-El Menus Task-El Menus TaskUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8ECFB0F0047B8B17C0221CD2 /* Pods_El_Menus_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_El_Menus_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9903AEC74ECB7A16DB7F1C9B /* Pods_El_Menus_Task_El_Menus_TaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_El_Menus_Task_El_Menus_TaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A76B36C5AAF27C898F6F563D /* Pods-El Menus Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Menus Task.debug.xcconfig"; path = "Target Support Files/Pods-El Menus Task/Pods-El Menus Task.debug.xcconfig"; sourceTree = "<group>"; };
+		C727561EEBF45646B24FD609 /* Pods-El Menus TaskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Menus TaskTests.release.xcconfig"; path = "Target Support Files/Pods-El Menus TaskTests/Pods-El Menus TaskTests.release.xcconfig"; sourceTree = "<group>"; };
+		EBB6241672CDE3A4D28EECAE /* Pods-El Menus Task-El Menus TaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Menus Task-El Menus TaskUITests.release.xcconfig"; path = "Target Support Files/Pods-El Menus Task-El Menus TaskUITests/Pods-El Menus Task-El Menus TaskUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FDFD69FA9ACA08026C2A5BED /* Pods-El Menus Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Menus Task.release.xcconfig"; path = "Target Support Files/Pods-El Menus Task/Pods-El Menus Task.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1E8FA66A1690B4F1DC491F /* Pods_El_Menus_Task.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B19249A3233EF19064E05B /* Pods_El_Menus_TaskTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55059FE19D0E2B114DA39B31 /* Pods_El_Menus_Task_El_Menus_TaskUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +102,8 @@
 				4CE8977C23E9AD6400989A84 /* El Menus TaskTests */,
 				4CE8978723E9AD6400989A84 /* El Menus TaskUITests */,
 				4CE8976123E9AD6100989A84 /* Products */,
+				57E118882A4D2DAE69DD74D7 /* Pods */,
+				A1964805434D8C3EBD0BC845 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,7 +122,8 @@
 			children = (
 				4CE8976323E9AD6100989A84 /* AppDelegate.swift */,
 				4CE8976523E9AD6100989A84 /* SceneDelegate.swift */,
-				4CE8976723E9AD6100989A84 /* ViewController.swift */,
+				4CE897DE23EA091700989A84 /* Views */,
+				4CE897DB23EA087D00989A84 /* Controllers */,
 				4CE8976923E9AD6100989A84 /* Main.storyboard */,
 				4CE8976F23E9AD6400989A84 /* Assets.xcassets */,
 				4CE8977123E9AD6400989A84 /* LaunchScreen.storyboard */,
@@ -131,6 +151,45 @@
 			path = "El Menus TaskUITests";
 			sourceTree = "<group>";
 		};
+		4CE897DB23EA087D00989A84 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CE8976723E9AD6100989A84 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4CE897DE23EA091700989A84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CE897DC23EA090800989A84 /* TagsCollectionCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57E118882A4D2DAE69DD74D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A76B36C5AAF27C898F6F563D /* Pods-El Menus Task.debug.xcconfig */,
+				FDFD69FA9ACA08026C2A5BED /* Pods-El Menus Task.release.xcconfig */,
+				7F2287E4D885586CA7408250 /* Pods-El Menus Task-El Menus TaskUITests.debug.xcconfig */,
+				EBB6241672CDE3A4D28EECAE /* Pods-El Menus Task-El Menus TaskUITests.release.xcconfig */,
+				6DBD3396434D79714486BA71 /* Pods-El Menus TaskTests.debug.xcconfig */,
+				C727561EEBF45646B24FD609 /* Pods-El Menus TaskTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A1964805434D8C3EBD0BC845 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ECFB0F0047B8B17C0221CD2 /* Pods_El_Menus_Task.framework */,
+				9903AEC74ECB7A16DB7F1C9B /* Pods_El_Menus_Task_El_Menus_TaskUITests.framework */,
+				1EDC3CE2A777F66506E839DB /* Pods_El_Menus_TaskTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE8978D23E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus Task" */;
 			buildPhases = (
+				3A02927E4733C1403F374749 /* [CP] Check Pods Manifest.lock */,
 				4CE8975C23E9AD6100989A84 /* Sources */,
 				4CE8975D23E9AD6100989A84 /* Frameworks */,
 				4CE8975E23E9AD6100989A84 /* Resources */,
+				9440857AFCBB86ABCAC87E6B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE8979023E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus TaskTests" */;
 			buildPhases = (
+				80AB6E4061B4411E8605C0E1 /* [CP] Check Pods Manifest.lock */,
 				4CE8977523E9AD6400989A84 /* Sources */,
 				4CE8977623E9AD6400989A84 /* Frameworks */,
 				4CE8977723E9AD6400989A84 /* Resources */,
@@ -173,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE8979323E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus TaskUITests" */;
 			buildPhases = (
+				69F58682FEAD66C27E9DCE2A /* [CP] Check Pods Manifest.lock */,
 				4CE8978023E9AD6400989A84 /* Sources */,
 				4CE8978123E9AD6400989A84 /* Frameworks */,
 				4CE8978223E9AD6400989A84 /* Resources */,
+				A0DEEF063B2949F991C52D51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,13 +321,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A02927E4733C1403F374749 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-El Menus Task-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69F58682FEAD66C27E9DCE2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-El Menus Task-El Menus TaskUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80AB6E4061B4411E8605C0E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-El Menus TaskTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9440857AFCBB86ABCAC87E6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Menus Task/Pods-El Menus Task-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Menus Task/Pods-El Menus Task-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-El Menus Task/Pods-El Menus Task-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0DEEF063B2949F991C52D51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Menus Task-El Menus TaskUITests/Pods-El Menus Task-El Menus TaskUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Menus Task-El Menus TaskUITests/Pods-El Menus Task-El Menus TaskUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-El Menus Task-El Menus TaskUITests/Pods-El Menus Task-El Menus TaskUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4CE8975C23E9AD6100989A84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4CE8976E23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld in Sources */,
-				4CE8976823E9AD6100989A84 /* ViewController.swift in Sources */,
+				4CE897DD23EA090800989A84 /* TagsCollectionCell.swift in Sources */,
+				4CE8976823E9AD6100989A84 /* HomeViewController.swift in Sources */,
 				4CE8976423E9AD6100989A84 /* AppDelegate.swift in Sources */,
 				4CE8976623E9AD6100989A84 /* SceneDelegate.swift in Sources */,
 			);
@@ -436,11 +604,13 @@
 		};
 		4CE8978E23E9AD6400989A84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A76B36C5AAF27C898F6F563D /* Pods-El Menus Task.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS8UTDMDGQ;
 				INFOPLIST_FILE = "El Menus Task/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,17 +618,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MichaelMaher.El-Menus-Task";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4CE8978F23E9AD6400989A84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDFD69FA9ACA08026C2A5BED /* Pods-El Menus Task.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS8UTDMDGQ;
 				INFOPLIST_FILE = "El Menus Task/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,12 +638,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MichaelMaher.El-Menus-Task";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		4CE8979123E9AD6400989A84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DBD3396434D79714486BA71 /* Pods-El Menus TaskTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +667,7 @@
 		};
 		4CE8979223E9AD6400989A84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C727561EEBF45646B24FD609 /* Pods-El Menus TaskTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +690,7 @@
 		};
 		4CE8979423E9AD6400989A84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F2287E4D885586CA7408250 /* Pods-El Menus Task-El Menus TaskUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -536,6 +711,7 @@
 		};
 		4CE8979523E9AD6400989A84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBB6241672CDE3A4D28EECAE /* Pods-El Menus Task-El Menus TaskUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

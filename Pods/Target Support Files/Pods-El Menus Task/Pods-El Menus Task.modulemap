@@ -1,0 +1,6 @@
+framework module Pods_El_Menus_Task {
+  umbrella header "Pods-El Menus Task-umbrella.h"
+
+  export *
+  module * { export * }
+}
