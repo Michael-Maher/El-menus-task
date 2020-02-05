@@ -12,13 +12,7 @@ import SnapKit
 class TagsCollectionCell: UICollectionViewCell {
     
     static let identifier = "TagsCollectionCell"
-    
-    //    private var backGroundView: UIView = {
-    //        let view = UIView()
-    //        view.contentMode = .scaleAspectFill
-    //        imageView.layer.cornerRadius = 12
-    //        return imageView
-    //    }()
+
     private var tagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -51,14 +45,7 @@ class TagsCollectionCell: UICollectionViewCell {
 
 extension TagsCollectionCell {
     func setupCell() {
-        //        self.addSubview(backGroundView)
-        //        backGroundView.snp.makeConstraints({ (make) in
-        //            make.leading.equalToSuperview()
-        //            make.trailing.equalToSuperview()
-        //            make.top.equalToSuperview()
-        //            make.height.equalToSuperview().multipliedBy(2 / 3)
-        //        })
-        
+
         self.addSubview(tagImageView)
         tagImageView.snp.makeConstraints({ (make) in
             make.leading.equalToSuperview()
