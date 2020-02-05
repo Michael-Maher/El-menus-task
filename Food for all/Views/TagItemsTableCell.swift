@@ -40,7 +40,7 @@ class TagItemsTableCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureCellLayout()
+        setupCellLayout()
 //        configureFontsAndUI()
     }
         
@@ -58,7 +58,7 @@ class TagItemsTableCell: UITableViewCell {
 }
 
 extension TagItemsTableCell {
-    func configureCellLayout() {
+    func setupCellLayout() {
         self.dropShadow()
         contentView.backgroundColor = .lightGray
         contentView.layer.cornerRadius = 8
@@ -85,5 +85,11 @@ extension TagItemsTableCell {
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-5)
             make.centerY.equalTo(tagItemImageView.snp.centerY)
         }
+    }
+    
+    func configureCell(withtagItem: Items) {
+        self.tagItemImageView.setup(withImageUrlPath: withtagItem.photoUrl ?? "")
+        self.tagItemTitleLabel.text = withtagItem.name
+        
     }
 }

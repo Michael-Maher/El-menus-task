@@ -11,9 +11,8 @@ import UIKit
 import Lottie
 import SnapKit
 
-enum AnimationJSON : String{
-    case loginAnimation = "github"
-    case initialLoading = "initialLoading"
+enum AnimationJSON : String {
+    case foodAnimation = "FoodAnimation"
 }
 
 extension UIView {

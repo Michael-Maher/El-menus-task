@@ -11,97 +11,143 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     
-    private lazy var tagsCollectionView: UICollectionView = {
-        let width = UIScreen.main.bounds.width * 0.25
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: width, height: 50)
-        
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = UIScreen.main.bounds.width * 0.1
-        layout.minimumInteritemSpacing = UIScreen.main.bounds.width * 0.1 // or any value you want
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .red
-        collectionView.isPagingEnabled = true
-        
-        collectionView.register(TagsCollectionCell.self, forCellWithReuseIdentifier: TagsCollectionCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        return collectionView
-    }()
-    
-    private lazy var tagItemsTableView: UITableView = {
+     private lazy var tagItemsTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .yellow
+        tableView.backgroundColor = .clear
+        tableView.register(TagsTableCell.self, forCellReuseIdentifier: TagsTableCell.identifier)
         tableView.register(TagItemsTableCell.self, forCellReuseIdentifier: TagItemsTableCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-//        tableView.tableHeaderView = tagsCollectionView
+        tableView.estimatedRowHeight = 400
+        tableView.rowHeight = UITableView.automaticDimension
+        //        tableView.tableHeaderView = tagsCollectionView
         tableView.separatorStyle = .none
         
         return tableView
     }()
     
+    private lazy var navigationBar : UINavigationBar = {
+        let navItem = UINavigationItem(title: "Food for all 😎")
+        let navigationBar = UINavigationBar()
+        navigationBar.setItems([navItem], animated: false)
+        
+        return navigationBar
+    }()
+    
+    var tagsList: [Tags] = [] {
+        didSet {
+            if !tagsList.isEmpty {
+            let intexPath = IndexPath(row: 0, section: 0)
+//                Rows(at: [intexPath], with: .none)
+
+            }
+        }
+    }
+    
+    var singleTagItems: [Items] = [] {
+        didSet {
+            if !singleTagItems.isEmpty {
+//                    let firstIntexPath = IndexPath(row: 0, section: 0)
+                tagItemsTableView.reloadData()
+//                reloadRows(at: tagItemsTableView.indexPathsForVisibleRows!.filter({ $0 != firstIntexPath
+//                }), with: .none)
+
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupUI()
+        setupView()
+        fetchData()
     }
     
-    func setupUI () {
-//        self.view.addSubview(tagsCollectionView)
-        self.view.addSubview(tagItemsTableView)
-        setupView()
-    }
-    //
+  
     func setupView() {
-//        tagsCollectionView.snp.makeConstraints { (make) in
-//            make.height.equalTo(200)
-//            make.leading.equalToSuperview()
-//            make.trailing.equalToSuperview()
-//            make.top.equalToSuperview()
-//        }
-        
-        tagItemsTableView.snp.makeConstraints { (make) in
-//            make.top.equalTo(self.tagsCollectionView.snp.bottom)
-//            make.leading.equalToSuperview()
-//            make.trailing.equalToSuperview()
-//            make.bottom.equalToSuperview()
-            make.edges.equalToSuperview()
+        self.view.addSubview(navigationBar)
+        navigationBar.snp.makeConstraints { (make) in
+            make.height.equalTo(44)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
         
+        self.view.addSubview(tagItemsTableView)
+        tagItemsTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(navigationBar.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
+    
+    func fetchData () {
+        loadTagsData(page:1)
+    }
+    
+    func loadTagsData(page: Int) {
+        self.view.addAnimatedLoadingView(animationJSON: .foodAnimation)
+        NetworkManager.getTagsList(page: page, success: { [unowned self] (tags) in
+            self.tagsList = tags
+            self.loadSingleTagData(tagName: tags[0].tagName ?? "")
+        }) { (error) in
+            print(error.localizedDescription)
+            self.view.removeAnimatedLoadingView()
+
+        }
+
+    }
+    
+    func loadSingleTagData(tagName: String) {
+        NetworkManager.getSingleTagItems(tagName: tagName, success: { (items) in
+            self.singleTagItems = items
+            self.view.removeAnimatedLoadingView()
+        }) { (error) in
+            print(error.localizedDescription)
+            self.view.removeAnimatedLoadingView()
+        }
+    }
+    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        print("Number of Single tag list : \n\n\(singleTagItems.count + 1)")
+
+        return singleTagItems.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier:TagItemsTableCell.identifier)
-            as? TagItemsTableCell else {
-                return UITableViewCell()
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:TagsTableCell.identifier)
+                as? TagsTableCell else {
+                    return UITableViewCell()
+            }            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:TagItemsTableCell.identifier)
+                as? TagItemsTableCell else {
+                    return UITableViewCell()
+            }
+            cell.configureCell(withtagItem: singleTagItems[indexPath.row])
+            
+            return cell
         }
         
-        return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200.0
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tagsCollectionView
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let tagsCell = cell as? TagsTableCell {
+            tagsCell.tagsCollectionView.delegate = self
+            tagsCell.tagsCollectionView.dataSource = self
+        }
     }
     
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        print("Number of list: \n\n\(tagsList.count)")
+        return tagsList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -109,6 +155,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             as? TagsCollectionCell else {
                 return UICollectionViewCell()
         }
+        
+        cell.configureCell(withTag: tagsList[indexPath.row])
         
         return cell
     }

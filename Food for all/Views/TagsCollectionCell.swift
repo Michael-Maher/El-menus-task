@@ -35,7 +35,7 @@ class TagsCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupCell()
+        setupCellLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,21 +44,30 @@ class TagsCollectionCell: UICollectionViewCell {
 }
 
 extension TagsCollectionCell {
-    func setupCell() {
+    func setupCellLayout() {
 
         self.addSubview(tagImageView)
         tagImageView.snp.makeConstraints({ (make) in
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(2 / 3)
+            make.width.equalTo(100)
+            make.height.equalTo(tagImageView.snp.width).multipliedBy(2 / 3)
         })
         
         self.addSubview(tagTitleLabel)
         tagTitleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(tagImageView.snp.bottom).offset(5)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-5)
         }
     }
+    
+    func configureCell(withTag: Tags) {
+        self.tagImageView.setup(withImageUrlPath: withTag.photoURL ?? "")
+        self.tagTitleLabel.text = withTag.tagName ?? ""
+    }
+    
+    
 }
