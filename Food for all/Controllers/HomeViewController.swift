@@ -55,8 +55,7 @@ class HomeViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
-           }
-        tableView.register(Tags, forCellReuseIdentifier: <#T##String#>)
+        }
            return tableView
        }()
     
@@ -92,7 +91,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>)
         return UITableViewCell()
     }
     

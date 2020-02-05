@@ -12,7 +12,7 @@
 		4CE8976623E9AD6100989A84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976523E9AD6100989A84 /* SceneDelegate.swift */; };
 		4CE8976823E9AD6100989A84 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976723E9AD6100989A84 /* HomeViewController.swift */; };
 		4CE8976B23E9AD6100989A84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8976923E9AD6100989A84 /* Main.storyboard */; };
-		4CE8976E23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976C23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld */; };
+		4CE8976E23E9AD6100989A84 /* Food_for_all.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976C23E9AD6100989A84 /* Food_for_all.xcdatamodeld */; };
 		4CE8977023E9AD6400989A84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8976F23E9AD6400989A84 /* Assets.xcassets */; };
 		4CE8977323E9AD6400989A84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8977123E9AD6400989A84 /* LaunchScreen.storyboard */; };
 		4CE8977E23E9AD6400989A84 /* El_Menus_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8977D23E9AD6400989A84 /* El_Menus_TaskTests.swift */; };
@@ -41,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		1EDC3CE2A777F66506E839DB /* Pods_El_Menus_TaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_El_Menus_TaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CE8976023E9AD6100989A84 /* El Menus Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "El Menus Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CE8976023E9AD6100989A84 /* Food for all.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food for all.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8976323E9AD6100989A84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE8976523E9AD6100989A84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4CE8976723E9AD6100989A84 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -50,10 +50,10 @@
 		4CE8976F23E9AD6400989A84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CE8977223E9AD6400989A84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CE8977423E9AD6400989A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CE8977923E9AD6400989A84 /* El Menus TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "El Menus TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CE8977923E9AD6400989A84 /* Food for allTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food for allTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8977D23E9AD6400989A84 /* El_Menus_TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = El_Menus_TaskTests.swift; sourceTree = "<group>"; };
 		4CE8977F23E9AD6400989A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CE8978423E9AD6400989A84 /* El Menus TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "El Menus TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CE8978423E9AD6400989A84 /* Food for allUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food for allUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8978823E9AD6400989A84 /* El_Menus_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = El_Menus_TaskUITests.swift; sourceTree = "<group>"; };
 		4CE8978A23E9AD6400989A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE897DC23EA090800989A84 /* TagsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionCell.swift; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 		4CE8975723E9AD6100989A84 = {
 			isa = PBXGroup;
 			children = (
-				4CE8976223E9AD6100989A84 /* El Menus Task */,
-				4CE8977C23E9AD6400989A84 /* El Menus TaskTests */,
-				4CE8978723E9AD6400989A84 /* El Menus TaskUITests */,
+				4CE8976223E9AD6100989A84 /* Food for all */,
+				4CE8977C23E9AD6400989A84 /* Food for allTests */,
+				4CE8978723E9AD6400989A84 /* Food for allUITests */,
 				4CE8976123E9AD6100989A84 /* Products */,
 				57E118882A4D2DAE69DD74D7 /* Pods */,
 				A1964805434D8C3EBD0BC845 /* Frameworks */,
@@ -110,14 +110,14 @@
 		4CE8976123E9AD6100989A84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CE8976023E9AD6100989A84 /* El Menus Task.app */,
-				4CE8977923E9AD6400989A84 /* El Menus TaskTests.xctest */,
-				4CE8978423E9AD6400989A84 /* El Menus TaskUITests.xctest */,
+				4CE8976023E9AD6100989A84 /* Food for all.app */,
+				4CE8977923E9AD6400989A84 /* Food for allTests.xctest */,
+				4CE8978423E9AD6400989A84 /* Food for allUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4CE8976223E9AD6100989A84 /* El Menus Task */ = {
+		4CE8976223E9AD6100989A84 /* Food for all */ = {
 			isa = PBXGroup;
 			children = (
 				4CE8976323E9AD6100989A84 /* AppDelegate.swift */,
@@ -128,27 +128,27 @@
 				4CE8976F23E9AD6400989A84 /* Assets.xcassets */,
 				4CE8977123E9AD6400989A84 /* LaunchScreen.storyboard */,
 				4CE8977423E9AD6400989A84 /* Info.plist */,
-				4CE8976C23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld */,
+				4CE8976C23E9AD6100989A84 /* Food_for_all.xcdatamodeld */,
 			);
-			path = "El Menus Task";
+			path = "Food for all";
 			sourceTree = "<group>";
 		};
-		4CE8977C23E9AD6400989A84 /* El Menus TaskTests */ = {
+		4CE8977C23E9AD6400989A84 /* Food for allTests */ = {
 			isa = PBXGroup;
 			children = (
 				4CE8977D23E9AD6400989A84 /* El_Menus_TaskTests.swift */,
 				4CE8977F23E9AD6400989A84 /* Info.plist */,
 			);
-			path = "El Menus TaskTests";
+			path = "Food for allTests";
 			sourceTree = "<group>";
 		};
-		4CE8978723E9AD6400989A84 /* El Menus TaskUITests */ = {
+		4CE8978723E9AD6400989A84 /* Food for allUITests */ = {
 			isa = PBXGroup;
 			children = (
 				4CE8978823E9AD6400989A84 /* El_Menus_TaskUITests.swift */,
 				4CE8978A23E9AD6400989A84 /* Info.plist */,
 			);
-			path = "El Menus TaskUITests";
+			path = "Food for allUITests";
 			sourceTree = "<group>";
 		};
 		4CE897DB23EA087D00989A84 /* Controllers */ = {
@@ -193,9 +193,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CE8975F23E9AD6100989A84 /* El Menus Task */ = {
+		4CE8975F23E9AD6100989A84 /* Food for all */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CE8978D23E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus Task" */;
+			buildConfigurationList = 4CE8978D23E9AD6400989A84 /* Build configuration list for PBXNativeTarget "Food for all" */;
 			buildPhases = (
 				3A02927E4733C1403F374749 /* [CP] Check Pods Manifest.lock */,
 				4CE8975C23E9AD6100989A84 /* Sources */,
@@ -207,14 +207,14 @@
 			);
 			dependencies = (
 			);
-			name = "El Menus Task";
+			name = "Food for all";
 			productName = "El Menus Task";
-			productReference = 4CE8976023E9AD6100989A84 /* El Menus Task.app */;
+			productReference = 4CE8976023E9AD6100989A84 /* Food for all.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4CE8977823E9AD6400989A84 /* El Menus TaskTests */ = {
+		4CE8977823E9AD6400989A84 /* Food for allTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CE8979023E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus TaskTests" */;
+			buildConfigurationList = 4CE8979023E9AD6400989A84 /* Build configuration list for PBXNativeTarget "Food for allTests" */;
 			buildPhases = (
 				80AB6E4061B4411E8605C0E1 /* [CP] Check Pods Manifest.lock */,
 				4CE8977523E9AD6400989A84 /* Sources */,
@@ -226,14 +226,14 @@
 			dependencies = (
 				4CE8977B23E9AD6400989A84 /* PBXTargetDependency */,
 			);
-			name = "El Menus TaskTests";
+			name = "Food for allTests";
 			productName = "El Menus TaskTests";
-			productReference = 4CE8977923E9AD6400989A84 /* El Menus TaskTests.xctest */;
+			productReference = 4CE8977923E9AD6400989A84 /* Food for allTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4CE8978323E9AD6400989A84 /* El Menus TaskUITests */ = {
+		4CE8978323E9AD6400989A84 /* Food for allUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CE8979323E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus TaskUITests" */;
+			buildConfigurationList = 4CE8979323E9AD6400989A84 /* Build configuration list for PBXNativeTarget "Food for allUITests" */;
 			buildPhases = (
 				69F58682FEAD66C27E9DCE2A /* [CP] Check Pods Manifest.lock */,
 				4CE8978023E9AD6400989A84 /* Sources */,
@@ -246,9 +246,9 @@
 			dependencies = (
 				4CE8978623E9AD6400989A84 /* PBXTargetDependency */,
 			);
-			name = "El Menus TaskUITests";
+			name = "Food for allUITests";
 			productName = "El Menus TaskUITests";
-			productReference = 4CE8978423E9AD6400989A84 /* El Menus TaskUITests.xctest */;
+			productReference = 4CE8978423E9AD6400989A84 /* Food for allUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -274,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4CE8975B23E9AD6100989A84 /* Build configuration list for PBXProject "El Menus Task" */;
+			buildConfigurationList = 4CE8975B23E9AD6100989A84 /* Build configuration list for PBXProject "Food for all" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -287,9 +287,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CE8975F23E9AD6100989A84 /* El Menus Task */,
-				4CE8977823E9AD6400989A84 /* El Menus TaskTests */,
-				4CE8978323E9AD6400989A84 /* El Menus TaskUITests */,
+				4CE8975F23E9AD6100989A84 /* Food for all */,
+				4CE8977823E9AD6400989A84 /* Food for allTests */,
+				4CE8978323E9AD6400989A84 /* Food for allUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -429,7 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE8976E23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld in Sources */,
+				4CE8976E23E9AD6100989A84 /* Food_for_all.xcdatamodeld in Sources */,
 				4CE897DD23EA090800989A84 /* TagsCollectionCell.swift in Sources */,
 				4CE8976823E9AD6100989A84 /* HomeViewController.swift in Sources */,
 				4CE8976423E9AD6100989A84 /* AppDelegate.swift in Sources */,
@@ -458,12 +458,12 @@
 /* Begin PBXTargetDependency section */
 		4CE8977B23E9AD6400989A84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4CE8975F23E9AD6100989A84 /* El Menus Task */;
+			target = 4CE8975F23E9AD6100989A84 /* Food for all */;
 			targetProxy = 4CE8977A23E9AD6400989A84 /* PBXContainerItemProxy */;
 		};
 		4CE8978623E9AD6400989A84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4CE8975F23E9AD6100989A84 /* El Menus Task */;
+			target = 4CE8975F23E9AD6100989A84 /* Food for all */;
 			targetProxy = 4CE8978523E9AD6400989A84 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -615,7 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.MichaelMaher.El-Menus-Task";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MichaelMaher.Food-for-all";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -635,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.MichaelMaher.El-Menus-Task";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MichaelMaher.Food-for-all";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -661,7 +661,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/El Menus Task.app/El Menus Task";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Food for all.app/Food for all";
 			};
 			name = Debug;
 		};
@@ -684,7 +684,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/El Menus Task.app/El Menus Task";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Food for all.app/Food for all";
 			};
 			name = Release;
 		};
@@ -733,7 +733,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4CE8975B23E9AD6100989A84 /* Build configuration list for PBXProject "El Menus Task" */ = {
+		4CE8975B23E9AD6100989A84 /* Build configuration list for PBXProject "Food for all" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CE8978B23E9AD6400989A84 /* Debug */,
@@ -742,7 +742,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CE8978D23E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus Task" */ = {
+		4CE8978D23E9AD6400989A84 /* Build configuration list for PBXNativeTarget "Food for all" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CE8978E23E9AD6400989A84 /* Debug */,
@@ -751,7 +751,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CE8979023E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus TaskTests" */ = {
+		4CE8979023E9AD6400989A84 /* Build configuration list for PBXNativeTarget "Food for allTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CE8979123E9AD6400989A84 /* Debug */,
@@ -760,7 +760,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CE8979323E9AD6400989A84 /* Build configuration list for PBXNativeTarget "El Menus TaskUITests" */ = {
+		4CE8979323E9AD6400989A84 /* Build configuration list for PBXNativeTarget "Food for allUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CE8979423E9AD6400989A84 /* Debug */,
@@ -772,13 +772,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4CE8976C23E9AD6100989A84 /* El_Menus_Task.xcdatamodeld */ = {
+		4CE8976C23E9AD6100989A84 /* Food_for_all.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				4CE8976D23E9AD6100989A84 /* El_Menus_Task.xcdatamodel */,
 			);
 			currentVersion = 4CE8976D23E9AD6100989A84 /* El_Menus_Task.xcdatamodel */;
-			path = El_Menus_Task.xcdatamodeld;
+			path = Food_for_all.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
