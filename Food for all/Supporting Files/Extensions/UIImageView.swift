@@ -14,7 +14,7 @@ extension UIImageView {
 //================================
 //MARK: Create Image with URL path
 //================================
-func setup(withImageUrlPath urlPath: String) {
+    func setup(withImageUrlPath urlPath: String, cornerRadius: CGFloat?) {
     let encodedPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
     self.sd_imageTransition = .flipFromBottom
     self.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
@@ -29,8 +29,10 @@ func setup(withImageUrlPath urlPath: String) {
             self.contentMode = .scaleAspectFill
             }
 //            self.makeCircle(contentMode: .scaleAspectFit)
-            self.layer.cornerRadius = 15
-            self.clipsToBounds = true
+            if let radius = cornerRadius {
+                self.layer.cornerRadius = radius
+                self.clipsToBounds = true
+            }
         }
     }) // setup image with URL path
     }

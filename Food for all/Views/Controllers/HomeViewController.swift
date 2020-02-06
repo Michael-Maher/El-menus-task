@@ -56,23 +56,34 @@ class HomeViewController: UIViewController {
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
     func setupView() {
-        self.view.addSubview(navigationBar)
-        navigationBar.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
-        }
-        
+        //        self.view.addSubview(navigationBar)
+        //        navigationBar.snp.makeConstraints { (make) in
+        //            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+        //            make.leading.trailing.equalToSuperview()
+        //        }
         self.view.addSubview(tagItemsTableView)
         tagItemsTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(navigationBar.snp.bottom).offset(5)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(10)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
+    func setupNavigationBar() {
+        title = "Food for all 😎"
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.9686697346)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,
+                                             .font: UIFont.boldSystemFont(ofSize: 18)]
+    }
+    
     func fetchData() {
-        self.homeViewModel?.delegateHomeModelToHomeController = self
         homeViewModel?.initialDataLoading()
+        self.homeViewModel?.delegateHomeModelToHomeController = self
     }
     
     
@@ -105,6 +116,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = homeViewModel?.singleTagItems[indexPath.row - 1] else { return }
+        let itemViewController = ItemViewController()
+        itemViewController.tagItem = item
+        self.navigationController?.pushViewController(itemViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

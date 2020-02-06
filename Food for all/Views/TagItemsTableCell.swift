@@ -107,7 +107,7 @@ extension TagItemsTableCell {
     }
     
     func configureCell(withtagItem: Items) {
-        self.tagItemImageView.setup(withImageUrlPath: withtagItem.photoUrl ?? "")
+        self.tagItemImageView.setup(withImageUrlPath: withtagItem.photoUrl ?? "", cornerRadius: 12)
         self.arrowImageView.image = UIImage(named: "arrow")
         self.tagItemTitleLabel.text = withtagItem.name
         self.tagItemDescriptionLabel.text = withtagItem.description

@@ -63,7 +63,7 @@ extension TagsCollectionCell {
     }
     
     func configureCell(withTag: Tags, isSelected: Bool) {
-        self.tagImageView.setup(withImageUrlPath: withTag.photoURL ?? "")
+        self.tagImageView.setup(withImageUrlPath: withTag.photoURL ?? "", cornerRadius: 12)
         self.tagTitleLabel.text = withTag.tagName ?? ""
         if isSelected {
             cellSelectionConfiguration()
@@ -75,7 +75,7 @@ extension TagsCollectionCell {
     
     
     func cellSelectionConfiguration() {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.5) {
             self.tagImageView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             self.tagTitleLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             self.tagTitleLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
@@ -83,7 +83,7 @@ extension TagsCollectionCell {
     }
     
     func cellDeSelectionConfiguration() {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             self.tagImageView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 0)
             self.tagTitleLabel.textColor = .black
             self.tagTitleLabel.font = UIFont(name:"HelveticaNeue", size: 15.0)

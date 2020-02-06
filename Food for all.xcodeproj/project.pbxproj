@@ -11,9 +11,9 @@
 		20424D46B1B5FC4144459C0E /* Pods_Food_for_all_Food_for_allUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0067FD679BE03C26662BD7EF /* Pods_Food_for_all_Food_for_allUITests.framework */; };
 		4C5DB46123EB71B600060830 /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB46023EB71B600060830 /* AnimationFactory.swift */; };
 		4C5DB46423EC032900060830 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB46323EC032900060830 /* HomeViewModel.swift */; };
+		4C5DB46723EC571A00060830 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB46623EC571A00060830 /* ItemViewController.swift */; };
 		4CE8976423E9AD6100989A84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976323E9AD6100989A84 /* AppDelegate.swift */; };
 		4CE8976823E9AD6100989A84 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976723E9AD6100989A84 /* HomeViewController.swift */; };
-		4CE8976B23E9AD6100989A84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8976923E9AD6100989A84 /* Main.storyboard */; };
 		4CE8976E23E9AD6100989A84 /* Food_for_all.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976C23E9AD6100989A84 /* Food_for_all.xcdatamodeld */; };
 		4CE8977023E9AD6400989A84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8976F23E9AD6400989A84 /* Assets.xcassets */; };
 		4CE8977323E9AD6400989A84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8977123E9AD6400989A84 /* LaunchScreen.storyboard */; };
@@ -60,10 +60,10 @@
 		44218740FD252A2E8361E1F6 /* Pods-Food for allTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food for allTests.debug.xcconfig"; path = "Target Support Files/Pods-Food for allTests/Pods-Food for allTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C5DB46023EB71B600060830 /* AnimationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
 		4C5DB46323EC032900060830 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4C5DB46623EC571A00060830 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		4CE8976023E9AD6100989A84 /* Food for all.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food for all.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8976323E9AD6100989A84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE8976723E9AD6100989A84 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4CE8976A23E9AD6100989A84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CE8976D23E9AD6100989A84 /* El_Menus_Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = El_Menus_Task.xcdatamodel; sourceTree = "<group>"; };
 		4CE8976F23E9AD6400989A84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CE8977223E9AD6400989A84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -198,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE8976723E9AD6100989A84 /* HomeViewController.swift */,
+				4C5DB46623EC571A00060830 /* ItemViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,7 +240,6 @@
 		4CE897E923EABE6A00989A84 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				4CE8976923E9AD6100989A84 /* Main.storyboard */,
 				4CE8977123E9AD6400989A84 /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoards;
@@ -406,7 +406,6 @@
 				4CE8977323E9AD6400989A84 /* LaunchScreen.storyboard in Resources */,
 				4CE8977023E9AD6400989A84 /* Assets.xcassets in Resources */,
 				4CE897E723EABDEC00989A84 /* FoodAnimation.json in Resources */,
-				4CE8976B23E9AD6100989A84 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +547,7 @@
 				4CE8976423E9AD6100989A84 /* AppDelegate.swift in Sources */,
 				4CE897E323EABC6A00989A84 /* UIView.swift in Sources */,
 				4CE897E023EABB0500989A84 /* TagItemsTableCell.swift in Sources */,
+				4C5DB46723EC571A00060830 /* ItemViewController.swift in Sources */,
 				4CE897EC23EABF1300989A84 /* Constants.swift in Sources */,
 				4C5DB46123EB71B600060830 /* AnimationFactory.swift in Sources */,
 			);
@@ -585,14 +585,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4CE8976923E9AD6100989A84 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CE8976A23E9AD6100989A84 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4CE8977123E9AD6400989A84 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
