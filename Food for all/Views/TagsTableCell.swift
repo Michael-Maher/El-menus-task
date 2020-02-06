@@ -9,23 +9,18 @@
 import Foundation
 import UIKit
 
-protocol TagsCollectionViewDelegate {
+protocol TagsTableCellToHomeModel {
     func didSelectTag (tagName: String)
+    func fetchTagsNextPage ()
 }
 
 class TagsTableCell: UITableViewCell {
     
     static let identifier = "TagsTableCell"
-    var delegate: TagsCollectionViewDelegate?
+    var delegateTagsCellToHomeModel: TagsTableCellToHomeModel?
     var selectedIndexPath: IndexPath?
 
-    var tagsList: [Tags] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tagsCollectionView.reloadData()
-            }
-        }
-    }
+    var homeViewModel: HomeViewModel?
     
     lazy var tagsCollectionView: UICollectionView = {
         let width = UIScreen.main.bounds.width * 0.25
@@ -70,42 +65,46 @@ extension TagsTableCell {
         }
         tagsCollectionView.reloadData()
     }
+    
+    func setupViewModel(viewModel:HomeViewModel) {
+        self.homeViewModel = viewModel
+        self.homeViewModel?.delegateHomeModelToTagsTableCell = self
+    }
 }
 
 
 
 extension TagsTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Number of list: \n\n\(tagsList.count)")
-        return tagsList.count
+//        print("Number of list: \n\n\(tagsList.count)")
+        return self.homeViewModel?.tagsList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagsCollectionCell.identifier, for: indexPath)
-            as? TagsCollectionCell else {
+            as? TagsCollectionCell,
+            let singleTag = self.homeViewModel?.tagsList[indexPath.row] else {
                 return UICollectionViewCell()
         }
-        cell.configureCell(withTag: tagsList[indexPath.row] , isSelected: selectedIndexPath == indexPath)
+        cell.configureCell(withTag: singleTag, isSelected: selectedIndexPath == indexPath)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == tagsList.count - 1 {
-            TagsModel.page += 1
-            NetworkManager.getTagsList(page: TagsModel.page, success: { [unowned self] (tags) in
-                self.tagsList.append(contentsOf: tags)
-            }) { (error) in
-                print(error.localizedDescription)
-            }
+        guard let tagList = homeViewModel?.tagsList else { return }
+        
+        if indexPath.row == tagList.count - 1 {
+            delegateTagsCellToHomeModel?.fetchTagsNextPage()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? TagsCollectionCell else { return }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? TagsCollectionCell,
+        let singleTag = self.homeViewModel?.tagsList[indexPath.row] else { return }
 
         cell.cellSelectionConfiguration()
-        delegate?.didSelectTag(tagName: tagsList[indexPath.row].tagName ?? "")
+        delegateTagsCellToHomeModel?.didSelectTag(tagName: singleTag.tagName ?? "")
         self.selectedIndexPath = indexPath
     }
     
@@ -117,4 +116,14 @@ extension TagsTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     
+}
+
+extension TagsTableCell: HomeModelToTagsTableCellDelegate {
+    func didFetchTagsList(tags: [Tags]?, errorMsg: String?) {
+        guard let _ = tags else { return }
+        
+        DispatchQueue.main.async {
+            self.tagsCollectionView.reloadData()
+        }
+    }
 }

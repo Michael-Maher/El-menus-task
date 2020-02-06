@@ -30,19 +30,23 @@ class HomeViewController: UIViewController {
     private lazy var navigationBar : UINavigationBar = {
         let navItem = UINavigationItem(title: "Food for all 😎")
         let navigationBar = UINavigationBar()
+        navigationBar.barTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.9686697346)
+        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]        
         navigationBar.setItems([navItem], animated: false)
         
         return navigationBar
     }()
     
-    var tagsList: [Tags] = []
+    private var homeViewModel: HomeViewModel?
     
-    var singleTagItems: [Items] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tagItemsTableView.reloadData()
-            }
-        }
+    init() {
+        self.homeViewModel = HomeViewModel()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.homeViewModel = HomeViewModel()
+        super.init(coder: coder)
     }
     
     override func viewDidLoad() {
@@ -55,65 +59,48 @@ class HomeViewController: UIViewController {
     func setupView() {
         self.view.addSubview(navigationBar)
         navigationBar.snp.makeConstraints { (make) in
-            make.height.equalTo(44)
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
         }
         
         self.view.addSubview(tagItemsTableView)
         tagItemsTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(navigationBar.snp.bottom)
+            make.top.equalTo(navigationBar.snp.bottom).offset(5)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
-    func fetchData () {
-        loadTagsData(page: TagsModel.page)
+    func fetchData() {
+        self.homeViewModel?.delegateHomeModelToHomeController = self
+        homeViewModel?.initialDataLoading()
     }
     
-    func loadTagsData(page: Int) {
-        self.view.addAnimatedLoadingView(animationJSON: .foodAnimation)
-        NetworkManager.getTagsList(page: page, success: { [unowned self] (tags) in
-            self.tagsList = tags
-            self.loadSingleTagData(tagName: tags[0].tagName ?? "")
-        }) { (error) in
-            print(error.localizedDescription)
-            self.view.removeAnimatedLoadingView()
-            
-        }
-    }
     
-    func loadSingleTagData(tagName: String) {
-        NetworkManager.getSingleTagItems(tagName: tagName, success: { (items) in
-            self.singleTagItems = items
-            self.view.removeAnimatedLoadingView()
-        }) { (error) in
-            print(error.localizedDescription)
-            self.view.removeAnimatedLoadingView()
-        }
-    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return singleTagItems.count + 1
+        let viewModelItems = homeViewModel?.singleTagItems
+        return (viewModelItems?.count ?? 0) + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:TagsTableCell.identifier, for: indexPath)
-                as? TagsTableCell else {
+                as? TagsTableCell,
+                let viewModel = homeViewModel else {
                     return UITableViewCell()
             }
-            cell.tagsList = tagsList
-            cell.delegate = self
+            cell.setupViewModel(viewModel: viewModel)
+            homeViewModel?.setupTagsCellDelegate(cell: cell)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:TagItemsTableCell.identifier, for: indexPath)
-                as? TagItemsTableCell else {
+                as? TagItemsTableCell,
+            let singleTagItems = homeViewModel?.singleTagItems[indexPath.row - 1] else {
                     return UITableViewCell()
             }
-            cell.configureCell(withtagItem: singleTagItems[indexPath.row - 1])
+            cell.configureCell(withtagItem: singleTagItems)
             
             return cell
         }
@@ -129,9 +116,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension HomeViewController: TagsCollectionViewDelegate {
-    func didSelectTag(tagName: String) {
-        loadSingleTagData(tagName: tagName)
+extension HomeViewController: HomeModelToHomeControllerDelegate {
+    func didFetchSingleTagData(singeTagItems: [Items]?, errorMsg: String?) {
+        DispatchQueue.main.async {
+            self.tagItemsTableView.reloadData()
+        }
     }
+    
 }
 
