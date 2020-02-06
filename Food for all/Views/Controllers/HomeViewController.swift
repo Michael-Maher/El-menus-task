@@ -11,7 +11,7 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     
-     private lazy var tagItemsTableView: UITableView = {
+    private lazy var tagItemsTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.register(TagsTableCell.self, forCellReuseIdentifier: TagsTableCell.identifier)
@@ -35,24 +35,12 @@ class HomeViewController: UIViewController {
         return navigationBar
     }()
     
-    var tagsList: [Tags] = [] {
-        didSet {
-            if !tagsList.isEmpty {
-            let intexPath = IndexPath(row: 0, section: 0)
-//                Rows(at: [intexPath], with: .none)
-
-            }
-        }
-    }
+    var tagsList: [Tags] = []
     
     var singleTagItems: [Items] = [] {
         didSet {
-            if !singleTagItems.isEmpty {
-//                    let firstIntexPath = IndexPath(row: 0, section: 0)
-                tagItemsTableView.reloadData()
-//                reloadRows(at: tagItemsTableView.indexPathsForVisibleRows!.filter({ $0 != firstIntexPath
-//                }), with: .none)
-
+            DispatchQueue.main.async {
+                self.tagItemsTableView.reloadData()
             }
         }
     }
@@ -64,7 +52,6 @@ class HomeViewController: UIViewController {
         fetchData()
     }
     
-  
     func setupView() {
         self.view.addSubview(navigationBar)
         navigationBar.snp.makeConstraints { (make) in
@@ -81,7 +68,7 @@ class HomeViewController: UIViewController {
     }
     
     func fetchData () {
-        loadTagsData(page:1)
+        loadTagsData(page: TagsModel.page)
     }
     
     func loadTagsData(page: Int) {
@@ -92,9 +79,8 @@ class HomeViewController: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
             self.view.removeAnimatedLoadingView()
-
+            
         }
-
     }
     
     func loadSingleTagData(tagName: String) {
@@ -106,29 +92,28 @@ class HomeViewController: UIViewController {
             self.view.removeAnimatedLoadingView()
         }
     }
-    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Number of Single tag list : \n\n\(singleTagItems.count + 1)")
-
         return singleTagItems.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:TagsTableCell.identifier)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:TagsTableCell.identifier, for: indexPath)
                 as? TagsTableCell else {
                     return UITableViewCell()
-            }            
+            }
+            cell.tagsList = tagsList
+            cell.delegate = self
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:TagItemsTableCell.identifier)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:TagItemsTableCell.identifier, for: indexPath)
                 as? TagItemsTableCell else {
                     return UITableViewCell()
             }
-            cell.configureCell(withtagItem: singleTagItems[indexPath.row])
+            cell.configureCell(withtagItem: singleTagItems[indexPath.row - 1])
             
             return cell
         }
@@ -136,31 +121,17 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let tagsCell = cell as? TagsTableCell {
-            tagsCell.tagsCollectionView.delegate = self
-            tagsCell.tagsCollectionView.dataSource = self
-        }
+        guard let cell = cell as? TagItemsTableCell, indexPath.row != 0 else { return }
+        // Animate cells
+        let animation = AnimationFactory.makeSlideIn(duration: 0.3, delayFactor: 0.02)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: self.tagItemsTableView)
     }
-    
 }
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Number of list: \n\n\(tagsList.count)")
-        return tagsList.count
+extension HomeViewController: TagsCollectionViewDelegate {
+    func didSelectTag(tagName: String) {
+        loadSingleTagData(tagName: tagName)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagsCollectionCell.identifier, for: indexPath)
-            as? TagsCollectionCell else {
-                return UICollectionViewCell()
-        }
-        
-        cell.configureCell(withTag: tagsList[indexPath.row])
-        
-        return cell
-    }
-    
-    
 }
 

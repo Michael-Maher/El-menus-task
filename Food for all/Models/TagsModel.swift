@@ -9,7 +9,9 @@
 import Foundation
 
 struct TagsModel : Decodable {
+    static var page = 1
 	let tags : [Tags]?
+    
 }
 
 

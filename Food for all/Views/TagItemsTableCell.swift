@@ -16,8 +16,6 @@ class TagItemsTableCell: UITableViewCell {
     private var tagItemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 12
-        imageView.dropShadow()
         return imageView
     }()
     
@@ -31,12 +29,29 @@ class TagItemsTableCell: UITableViewCell {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.textAlignment = .center
+        titleLabel.textAlignment = .left
+        titleLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
         titleLabel.textColor = .black
-//        let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor.black]
-//        titleLabel.attributedText = NSAttributedString(string: title, attributes: attributes)        
         return titleLabel
     }()
+    
+    private var tagItemDescriptionLabel: UILabel = {
+        let descLabel = UILabel()
+        descLabel.numberOfLines = 4
+        descLabel.lineBreakMode = .byTruncatingTail
+        descLabel.textAlignment = .left
+        descLabel.textColor = .darkGray
+        return descLabel
+    }()
+    
+    private var tagItemInfoStackView: UIStackView = {
+        let stack = UIStackView()
+            stack.axis = .vertical
+            stack.distribution = .fillProportionally
+            stack.spacing = 5.0
+        
+        return stack
+        }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -60,36 +75,42 @@ class TagItemsTableCell: UITableViewCell {
 extension TagItemsTableCell {
     func setupCellLayout() {
         self.dropShadow()
-        contentView.backgroundColor = .lightGray
-        contentView.layer.cornerRadius = 8
+        contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        contentView.layer.cornerRadius = 15
         
         self.addSubview(tagItemImageView)
         tagItemImageView.snp.makeConstraints { (make) in
             make.width.equalTo(110)
             make.height.equalTo(tagItemImageView.snp.width).multipliedBy(3 / 2)
-            make.leading.equalToSuperview().offset(10)
-            make.top.equalToSuperview().offset(10)
+            make.leading.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
         
         self.addSubview(arrowImageView)
         arrowImageView.snp.makeConstraints { (make) in
-            make.height.width.equalTo(100)
-            make.trailing.equalToSuperview().offset(5)
+            make.height.width.equalTo(20)
+            make.trailing.equalToSuperview().offset(-10)
             make.centerY.equalTo(tagItemImageView.snp.centerY)
         }
         
-        self.addSubview(tagItemTitleLabel)
-        tagItemTitleLabel.snp.makeConstraints { (make) in
+        tagItemInfoStackView.addArrangedSubview(tagItemTitleLabel)
+        tagItemInfoStackView.addArrangedSubview(tagItemDescriptionLabel)
+
+        self.addSubview(tagItemInfoStackView)
+        tagItemInfoStackView.snp.makeConstraints { (make) in
             make.leading.equalTo(tagItemImageView.snp.trailing).offset(10)
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-5)
             make.centerY.equalTo(tagItemImageView.snp.centerY)
+            make.top.bottom.equalTo(tagItemImageView)
+//            make
         }
     }
     
     func configureCell(withtagItem: Items) {
         self.tagItemImageView.setup(withImageUrlPath: withtagItem.photoUrl ?? "")
+        self.arrowImageView.image = UIImage(named: "arrow")
         self.tagItemTitleLabel.text = withtagItem.name
+        self.tagItemDescriptionLabel.text = withtagItem.description
         
     }
 }

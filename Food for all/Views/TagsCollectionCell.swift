@@ -16,9 +16,9 @@ class TagsCollectionCell: UICollectionViewCell {
     private var tagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 12
+        imageView.layer.cornerRadius = 15
         imageView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        imageView.layer.borderWidth = 3
+        imageView.layer.borderWidth = 5
         
         return imageView
     }()
@@ -28,7 +28,7 @@ class TagsCollectionCell: UICollectionViewCell {
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.textAlignment = .center
-        titleLabel.textColor = .darkGray
+        titleLabel.textColor = .black
         
         return titleLabel
     }()
@@ -48,26 +48,46 @@ extension TagsCollectionCell {
 
         self.addSubview(tagImageView)
         tagImageView.snp.makeConstraints({ (make) in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.top.equalToSuperview()
-            make.width.equalTo(100)
-            make.height.equalTo(tagImageView.snp.width).multipliedBy(2 / 3)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(5)
+            make.height.equalTo(115)
         })
         
         self.addSubview(tagTitleLabel)
         tagTitleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(tagImageView.snp.bottom).offset(5)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-5)
+            make.top.equalTo(tagImageView.snp.bottom)
+            make.bottom.leading.trailing.equalToSuperview()
+//            make.height.equalTo(self.snp.height).multipliedBy( 1 / 3)
+//            make.bottom.equalToSuperview()
         }
     }
     
-    func configureCell(withTag: Tags) {
+    func configureCell(withTag: Tags, isSelected: Bool) {
         self.tagImageView.setup(withImageUrlPath: withTag.photoURL ?? "")
         self.tagTitleLabel.text = withTag.tagName ?? ""
+        if isSelected {
+            cellSelectionConfiguration()
+        } else {
+            cellDeSelectionConfiguration()
+        }
+        
     }
     
+    
+    func cellSelectionConfiguration() {
+        UIView.animate(withDuration: 0.3) {
+            self.tagImageView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            self.tagTitleLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            self.tagTitleLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
+        }
+    }
+    
+    func cellDeSelectionConfiguration() {
+        UIView.animate(withDuration: 0.3) {
+            self.tagImageView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 0)
+            self.tagTitleLabel.textColor = .black
+            self.tagTitleLabel.font = UIFont(name:"HelveticaNeue", size: 15.0)
+        }
+    }
     
 }

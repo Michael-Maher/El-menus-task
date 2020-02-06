@@ -17,7 +17,7 @@ enum TagsProvider {
 
 extension TagsProvider: CachePolicyGettable , TargetType {
     var cachePolicy: URLRequest.CachePolicy {
-        return .useProtocolCachePolicy
+        return .returnCacheDataElseLoad
     }
     
     

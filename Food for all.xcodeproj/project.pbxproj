@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0DD9629C75F1B419755572CC /* Pods_Food_for_allTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E427C69DC7591748044E71BC /* Pods_Food_for_allTests.framework */; };
 		20424D46B1B5FC4144459C0E /* Pods_Food_for_all_Food_for_allUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0067FD679BE03C26662BD7EF /* Pods_Food_for_all_Food_for_allUITests.framework */; };
+		4C5DB46123EB71B600060830 /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB46023EB71B600060830 /* AnimationFactory.swift */; };
+		4C5DB46423EC032900060830 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB46323EC032900060830 /* HomeViewModel.swift */; };
 		4CE8976423E9AD6100989A84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976323E9AD6100989A84 /* AppDelegate.swift */; };
 		4CE8976823E9AD6100989A84 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976723E9AD6100989A84 /* HomeViewController.swift */; };
 		4CE8976B23E9AD6100989A84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8976923E9AD6100989A84 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		33B960D8DD9129F9482E59E0 /* Pods-Food for all.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food for all.release.xcconfig"; path = "Target Support Files/Pods-Food for all/Pods-Food for all.release.xcconfig"; sourceTree = "<group>"; };
 		38FEDCD390C3166463860632 /* Pods_Food_for_all.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_for_all.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44218740FD252A2E8361E1F6 /* Pods-Food for allTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food for allTests.debug.xcconfig"; path = "Target Support Files/Pods-Food for allTests/Pods-Food for allTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4C5DB46023EB71B600060830 /* AnimationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
+		4C5DB46323EC032900060830 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4CE8976023E9AD6100989A84 /* Food for all.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food for all.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8976323E9AD6100989A84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE8976723E9AD6100989A84 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C5DB46223EB71BC00060830 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB46023EB71B600060830 /* AnimationFactory.swift */,
+				4CE897E623EABDEC00989A84 /* FoodAnimation.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		4C5DB46523EC035400060830 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB46323EC032900060830 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		4CE8975723E9AD6100989A84 = {
 			isa = PBXGroup;
 			children = (
@@ -146,11 +167,11 @@
 		4CE8976223E9AD6100989A84 /* Food for all */ = {
 			isa = PBXGroup;
 			children = (
+				4CE897F323EAE94B00989A84 /* Models */,
+				4C5DB46523EC035400060830 /* ViewModels */,
 				4CE897DE23EA091700989A84 /* Views */,
-				4CE897DB23EA087D00989A84 /* Controllers */,
 				4CE897E823EABE5200989A84 /* Supporting Files */,
 				4CE897EA23EABEA400989A84 /* Resources */,
-				4CE897F323EAE94B00989A84 /* Models */,
 			);
 			path = "Food for all";
 			sourceTree = "<group>";
@@ -184,6 +205,7 @@
 		4CE897DE23EA091700989A84 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4CE897DB23EA087D00989A84 /* Controllers */,
 				4CE897E923EABE6A00989A84 /* StoryBoards */,
 				4CE897DC23EA090800989A84 /* TagsCollectionCell.swift */,
 				4CE897DF23EABB0500989A84 /* TagItemsTableCell.swift */,
@@ -207,7 +229,7 @@
 				4CE897F123EAE83A00989A84 /* LocalDataHandler.swift */,
 				4CE8976323E9AD6100989A84 /* AppDelegate.swift */,
 				4CE897E523EABC7400989A84 /* Extensions */,
-				4CE897E623EABDEC00989A84 /* FoodAnimation.json */,
+				4C5DB46223EB71BC00060830 /* Animation */,
 				4CE8976C23E9AD6100989A84 /* Food_for_all.xcdatamodeld */,
 				4CE897EB23EABF1300989A84 /* Constants.swift */,
 			);
@@ -515,6 +537,7 @@
 				4CE8976E23E9AD6100989A84 /* Food_for_all.xcdatamodeld in Sources */,
 				4CE897DD23EA090800989A84 /* TagsCollectionCell.swift in Sources */,
 				4CE897E423EABC6A00989A84 /* UIImageView.swift in Sources */,
+				4C5DB46423EC032900060830 /* HomeViewModel.swift in Sources */,
 				4CE897EE23EADC5600989A84 /* TagsTableCell.swift in Sources */,
 				4CE897F223EAE83A00989A84 /* LocalDataHandler.swift in Sources */,
 				4CE897F923EAEA2A00989A84 /* TagsModel.swift in Sources */,
@@ -526,6 +549,7 @@
 				4CE897E323EABC6A00989A84 /* UIView.swift in Sources */,
 				4CE897E023EABB0500989A84 /* TagItemsTableCell.swift in Sources */,
 				4CE897EC23EABF1300989A84 /* Constants.swift in Sources */,
+				4C5DB46123EB71B600060830 /* AnimationFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

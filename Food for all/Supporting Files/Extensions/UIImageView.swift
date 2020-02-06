@@ -31,7 +31,6 @@ func setup(withImageUrlPath urlPath: String) {
 //            self.makeCircle(contentMode: .scaleAspectFit)
             self.layer.cornerRadius = 15
             self.clipsToBounds = true
-            self.dropShadow()
         }
     }) // setup image with URL path
     }
