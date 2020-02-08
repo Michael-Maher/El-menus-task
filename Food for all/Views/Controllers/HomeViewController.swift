@@ -11,6 +11,9 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     
+    //==============
+    //MARK: Outlets
+    //==============
     private lazy var tagItemsTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
@@ -21,24 +24,28 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 400
         tableView.rowHeight = UITableView.automaticDimension
-        //        tableView.tableHeaderView = tagsCollectionView
         tableView.separatorStyle = .none
         
         return tableView
     }()
     
-    private lazy var navigationBar : UINavigationBar = {
-        let navItem = UINavigationItem(title: "Food for all 😎")
-        let navigationBar = UINavigationBar()
-        navigationBar.barTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.9686697346)
-        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]        
-        navigationBar.setItems([navItem], animated: false)
-        
-        return navigationBar
+    private lazy var refreshControl : UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh Tags and Items ..", attributes: [NSAttributedString.Key.foregroundColor:#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) , NSAttributedString.Key.font: UIFont.init(name: "AvenirNext-DemiBold", size: 16.0)!])
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
+        return refreshControl
     }()
     
+    //========================
+    //MARK: Instance variables
+    //========================
     private var homeViewModel: HomeViewModel?
     
+    
+    //========================
+    //MARK: Init methods
+    //========================
     init() {
         self.homeViewModel = HomeViewModel()
         super.init(nibName: nil, bundle: nil)
@@ -49,47 +56,55 @@ class HomeViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    //=============================
+    //MARK: View life cycle methods
+    //=============================
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupView()
         fetchData()
-    }
+    } // viewDidLoad
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar()
-    }
+        
+        self.navigationController?.setupMainNavigationBar() // this method to configure navigation bar in this controller
+    } // viewWillAppear
     
+    //===================
+    //MARK: UI configuration
+    //===================
     func setupView() {
-        //        self.view.addSubview(navigationBar)
-        //        navigationBar.snp.makeConstraints { (make) in
-        //            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-        //            make.leading.trailing.equalToSuperview()
-        //        }
+        self.title = "Food for all 😎"
+
         self.view.addSubview(tagItemsTableView)
         tagItemsTableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(10)
             make.leading.trailing.bottom.equalToSuperview()
         }
-    }
+        
+        tagItemsTableView.refreshControl = refreshControl
+    } // setupView
     
-    func setupNavigationBar() {
-        title = "Food for all 😎"
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.9686697346)
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,
-                                             .font: UIFont.boldSystemFont(ofSize: 18)]
-    }
-    
+    //===================
+    //MARK: Loading data
+    //===================
+    @objc
     func fetchData() {
-        homeViewModel?.initialDataLoading()
-        self.homeViewModel?.delegateHomeModelToHomeController = self
-    }
-    
-    
+        refreshControl.endRefreshing() // remove refresh control if exists
+        view.addAnimatedLoadingView(animationJSON: .foodAnimation)
+        homeViewModel?.initialDataLoading(completion: { [unowned self] (_) in // make initial request to get tag list and first tag items. This colsure to know when requests finished to remove the animated view.
+            self.view.removeAnimatedLoadingView()
+        })
+        self.homeViewModel?.delegateHomeModelToHomeController = self // This delegate to inform home view controller that home view model has finished single tag items fetching.
+    } // fetchData
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+//============================
+//MARK: Table view data source
+//============================
+extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let viewModelItems = homeViewModel?.singleTagItems
         return (viewModelItems?.count ?? 0) + 1
@@ -111,15 +126,22 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             let singleTagItems = homeViewModel?.singleTagItems[indexPath.row - 1] else {
                     return UITableViewCell()
             }
-            cell.configureCell(withtagItem: singleTagItems)
+            cell.configureCell(withTagItem: singleTagItems)
             
             return cell
         }
         
     }
-    
+}
+
+//============================
+//MARK: Delegate Methdos
+//============================
+extension HomeViewController: HomeModelToHomeControllerDelegate, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = homeViewModel?.singleTagItems[indexPath.row - 1] else { return }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         let itemViewController = ItemViewController()
         itemViewController.tagItem = item
         self.navigationController?.pushViewController(itemViewController, animated: true)
@@ -132,12 +154,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let animator = Animator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: self.tagItemsTableView)
     }
-}
-
-extension HomeViewController: HomeModelToHomeControllerDelegate {
+    
     func didFetchSingleTagData(singeTagItems: [Items]?, errorMsg: String?) {
-        DispatchQueue.main.async {
-            self.tagItemsTableView.reloadData()
+        if singeTagItems != nil {
+            DispatchQueue.main.async {
+                self.tagItemsTableView.reloadData()
+            }
+        } else {
+            GenericView.showErrorMsgForTime(errorMsg: errorMsg)
         }
     }
     

@@ -47,22 +47,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4FFCBBFA-10CD-4F28-B63B-0DB725095DDA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Food for all/Views/TagsTableCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "configureCellLayout()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A763E09B-10C7-485F-8312-3720B49E36BF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -118,26 +102,10 @@
             filePath = "Food for all/Views/TagsTableCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1F4DAEC6-3D4D-44E3-89C2-A5497F61FE21"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Food for all/Views/Controllers/ItemViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "tagItem"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -150,25 +118,185 @@
             filePath = "Food for all/Views/Controllers/ItemViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "scrollViewDidScroll(_:)"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "ItemViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86D547EE-F596-4911-9C47-48A59810DFF4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/Views/Cells/TagsTableCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "didReloadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6470D74-ECCF-43F7-B50D-2EDE52F2FB2C"
+            uuid = "DAAF2667-AD81-45C5-B306-F018D509942A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/Views/Cells/TagsTableCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "collectionView(_:didDeselectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41F595ED-BF50-40B9-88E0-67E8789325C1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Food for all/Views/Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80B967C6-448F-4D62-A6CB-7B3A3A74E7AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/Supporting Files/Extensions/UINavigationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "setupMainNavigationBar()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B695EAE-3E12-466D-A156-2D744DCC17F5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/Views/Cells/TagsTableCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "didReloadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BDB1E06-4E0E-4221-8CDB-A515830CBC57"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/Supporting Files/Extensions/UIView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "removeActivityIndicatorView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0B782C4-24AE-43F9-8D54-DC2D42435F3B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/Supporting Files/Extensions/UIView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "removeActivityIndicatorView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A0B782C4-24AE-43F9-8D54-DC2D42435F3B - 9e015779d8213006"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in Food_for_all):__C.UIView.removeActivityIndicatorView() -&gt; ()"
+                  moduleName = "Food for all"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Michael/Desktop/El%20Menus%20Task/Food%20for%20all/Supporting%20Files/Extensions/UIView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "462">
+               </Location>
+               <Location
+                  uuid = "A0B782C4-24AE-43F9-8D54-DC2D42435F3B - ac64191f95eb51ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in (extension in Food_for_all):__C.UIView.removeActivityIndicatorView() -&gt; ()"
+                  moduleName = "Food for all"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Michael/Desktop/El%20Menus%20Task/Food%20for%20all/Supporting%20Files/Extensions/UIView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "681A66E6-3D07-4FFD-A68E-673EB48D892C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/ViewModels/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "didSelectTag(tagName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB4AE657-D70E-4824-9644-F3A94F5C3D5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food for all/Supporting Files/Extensions/UIView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "removeActivityIndicatorView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

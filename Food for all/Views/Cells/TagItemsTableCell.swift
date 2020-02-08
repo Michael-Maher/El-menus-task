@@ -13,6 +13,14 @@ class TagItemsTableCell: UITableViewCell {
     
     static let identifier = "TagItemsTableCell"
     
+    private var backGroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        view.layer.cornerRadius = 15
+        view.dropShadow()
+        return view
+    }()
+    
     private var tagItemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -40,7 +48,7 @@ class TagItemsTableCell: UITableViewCell {
         descLabel.numberOfLines = 4
         descLabel.lineBreakMode = .byTruncatingTail
         descLabel.textAlignment = .left
-        descLabel.textColor = .darkGray
+        descLabel.textColor = #colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1)
         return descLabel
     }()
     
@@ -74,11 +82,15 @@ class TagItemsTableCell: UITableViewCell {
 
 extension TagItemsTableCell {
     func setupCellLayout() {
-        self.dropShadow()
-        contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        contentView.layer.cornerRadius = 15
         
-        self.addSubview(tagItemImageView)
+        
+        self.addSubview(backGroundView)
+        backGroundView.snp.makeConstraints { (make) in
+            make.leading.top.equalToSuperview().offset(8)
+            make.trailing.bottom.equalToSuperview().offset(-8)
+        }
+        
+        backGroundView.addSubview(tagItemImageView)
         tagItemImageView.snp.makeConstraints { (make) in
             make.width.equalTo(110)
             make.height.equalTo(tagItemImageView.snp.width).multipliedBy(3 / 2)
@@ -86,7 +98,7 @@ extension TagItemsTableCell {
             make.bottom.equalToSuperview().offset(-10)
         }
         
-        self.addSubview(arrowImageView)
+        backGroundView.addSubview(arrowImageView)
         arrowImageView.snp.makeConstraints { (make) in
             make.height.width.equalTo(20)
             make.trailing.equalToSuperview().offset(-10)
@@ -96,7 +108,7 @@ extension TagItemsTableCell {
         tagItemInfoStackView.addArrangedSubview(tagItemTitleLabel)
         tagItemInfoStackView.addArrangedSubview(tagItemDescriptionLabel)
 
-        self.addSubview(tagItemInfoStackView)
+        backGroundView.addSubview(tagItemInfoStackView)
         tagItemInfoStackView.snp.makeConstraints { (make) in
             make.leading.equalTo(tagItemImageView.snp.trailing).offset(10)
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-5)
@@ -106,11 +118,11 @@ extension TagItemsTableCell {
         }
     }
     
-    func configureCell(withtagItem: Items) {
-        self.tagItemImageView.setup(withImageUrlPath: withtagItem.photoUrl ?? "", cornerRadius: 12)
+    func configureCell(withTagItem: Items) {
+        self.tagItemImageView.setup(withImageUrlPath: withTagItem.photoUrl ?? "", cornerRadius: 15)
         self.arrowImageView.image = UIImage(named: "arrow")
-        self.tagItemTitleLabel.text = withtagItem.name
-        self.tagItemDescriptionLabel.text = withtagItem.description
+        self.tagItemTitleLabel.text = withTagItem.name
+        self.tagItemDescriptionLabel.text = withTagItem.description
         
     }
 }

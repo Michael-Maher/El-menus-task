@@ -14,7 +14,7 @@ class ItemViewController: UIViewController {
     var tagItem: Items? {
         didSet{
             title = tagItem?.name ?? "Product"
-            headerImageView.setup(withImageUrlPath: tagItem?.photoUrl ?? "", cornerRadius: nil)
+            headerImageView.setup(withImageUrlPath: tagItem?.photoUrl ?? "", cornerRadius: 6)
             descriptionLabel.text = tagItem?.description
         }
     }
@@ -29,8 +29,7 @@ class ItemViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.delegate = self
-//        scrollView.alwaysBounceVertical = true
-
+        scrollView.backgroundColor = .white
         return scrollView
     }()
 
@@ -42,7 +41,6 @@ class ItemViewController: UIViewController {
         let view = UIView()
         view.clipsToBounds = true
         return view
-
     }()
     
     private var headerImageView: UIImageView = {
@@ -66,26 +64,17 @@ class ItemViewController: UIViewController {
         return label
     }()
     
-    
-    // This will reference the header view container top constraint
-    private var headerTopConstraint: NSLayoutConstraint!
-
-    // This will reference the header view container height constraint
-    private var headerHeightConstraint: NSLayoutConstraint!
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupViewLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setupClearNavigationBar()
     }
     
     func setupViewLayout() {
@@ -114,12 +103,6 @@ class ItemViewController: UIViewController {
             make.leading.equalToSuperview().offset(15)
             make.trailing.bottom.equalToSuperview().offset(-15)
          }
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        //        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 0.2952964469)
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black,
-                                                                   .font : UIFont.boldSystemFont(ofSize: 17)]
         
     }
 

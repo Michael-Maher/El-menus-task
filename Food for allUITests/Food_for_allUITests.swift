@@ -1,14 +1,16 @@
 //
-//  El_Menus_TaskUITests.swift
-//  El Menus TaskUITests
+//  Food_for_allUITests.swift
+//  Food for allUITests
 //
-//  Created by Michael Maher on 2/4/20.
+//  Created by Michael Maher on 2/8/20.
 //  Copyright © 2020 MichaelMaher. All rights reserved.
 //
 
 import XCTest
+@testable import Food_for_all
 
-class El_Menus_TaskUITests: XCTestCase {
+
+class Food_for_allUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,6 +32,10 @@ class El_Menus_TaskUITests: XCTestCase {
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testInfiniteTagsScrolling() {
+                
     }
 
     func testLaunchPerformance() {

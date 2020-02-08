@@ -11,6 +11,7 @@ import UIKit
 
 protocol HomeModelToTagsTableCellDelegate {
     func didFetchTagsList(tags: [Tags]? , errorMsg: String?)
+    func didReloadData()
 }
 
 protocol HomeModelToHomeControllerDelegate {
@@ -25,17 +26,21 @@ class HomeViewModel {
     var delegateHomeModelToTagsTableCell: HomeModelToTagsTableCellDelegate?
     var delegateHomeModelToHomeController: HomeModelToHomeControllerDelegate?
 
-    
-    func initialDataLoading() {
+    @objc
+    func initialDataLoading(completion:@escaping(_ errorOccurred: Bool) -> Void) {
         TagsModel.page = 1
+        self.tagsList.removeAll()
         loadTagsData(page: TagsModel.page, tagsCompletionHandler: { (tags) in
-            self.loadSingleTagData(tagName: tags.first?.tagName ?? "", tagItemsCompletionHandler: { (items) in
-                print("\n\nFetching First page Data Done :\(tags.first?.tagName ?? "")")
+            self.loadSingleTagData(tagName: tags.first?.tagName ?? "", tagItemsCompletionHandler: { [unowned self] (items) in
+                self.delegateHomeModelToTagsTableCell?.didReloadData()
+                completion(true)
             }) { (errorMsg) in
                 print(errorMsg)
+                completion(false)
             }
         }) { (errorMsg) in
             self.delegateHomeModelToHomeController?.didFetchSingleTagData(singeTagItems: nil, errorMsg: errorMsg)
+            completion(false)
         }
     }
     
@@ -72,10 +77,13 @@ class HomeViewModel {
 
 extension HomeViewModel: TagsTableCellToHomeModel {
     func didSelectTag(tagName: String) {
+        UIApplication.topViewController()?.view.addActivityIndicator()
         loadSingleTagData(tagName: tagName, tagItemsCompletionHandler: { (items) in
             print("\n\nFetching \(tagName) items  Done :\(items)")
+          UIApplication.topViewController()?.view.removeActivityIndicatorView()
         }) { (errorMsg) in
             print("\n\nFetching \(tagName) items Error :\(errorMsg)")
+            UIApplication.topViewController()?.view.removeActivityIndicatorView()
         }
     }
     

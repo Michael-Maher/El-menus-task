@@ -35,6 +35,7 @@ class TagsCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupCellLayout()
     }
     
@@ -57,13 +58,11 @@ extension TagsCollectionCell {
         tagTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(tagImageView.snp.bottom)
             make.bottom.leading.trailing.equalToSuperview()
-//            make.height.equalTo(self.snp.height).multipliedBy( 1 / 3)
-//            make.bottom.equalToSuperview()
         }
     }
     
     func configureCell(withTag: Tags, isSelected: Bool) {
-        self.tagImageView.setup(withImageUrlPath: withTag.photoURL ?? "", cornerRadius: 12)
+        self.tagImageView.setup(withImageUrlPath: withTag.photoURL ?? "", cornerRadius: 15)
         self.tagTitleLabel.text = withTag.tagName ?? ""
         if isSelected {
             cellSelectionConfiguration()
@@ -81,6 +80,7 @@ extension TagsCollectionCell {
             self.tagTitleLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
         }
     }
+    
     
     func cellDeSelectionConfiguration() {
         UIView.animate(withDuration: 0.2) {

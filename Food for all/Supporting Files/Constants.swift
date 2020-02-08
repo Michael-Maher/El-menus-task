@@ -12,4 +12,5 @@ enum ViewsTag: Int {
     case kActivityIndicatorTag = 1313
     case kAnimationViewTag = 1212
     case kGenericViewTag = 12345
+    case kLoadingBackGroundViewTag = 4444
 }

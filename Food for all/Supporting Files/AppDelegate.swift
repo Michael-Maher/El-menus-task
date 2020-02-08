@@ -72,7 +72,6 @@ private extension AppDelegate {
     private func instantiateMainViewController() {
         let navigationController = UINavigationController(rootViewController: HomeViewController())
         
-//        let mainViewController =
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.rootViewController?.view.backgroundColor = .white

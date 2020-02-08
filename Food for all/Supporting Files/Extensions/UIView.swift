@@ -22,31 +22,45 @@ extension UIView {
     //==================================
     func addActivityIndicator() {
         if let foundView = self.viewWithTag(ViewsTag.kActivityIndicatorTag.rawValue) {
-               foundView.removeFromSuperview()
-           }
-        let loadingView = UIActivityIndicatorView(style: .gray)
-            loadingView.tag = ViewsTag.kActivityIndicatorTag.rawValue
-           
-           addSubview(loadingView)
+            foundView.removeFromSuperview()
+        }
+        let loadingView = UIActivityIndicatorView(style: .whiteLarge)
+        loadingView.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        loadingView.tag = ViewsTag.kActivityIndicatorTag.rawValue
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.5)
+        backgroundView.layer.cornerRadius = 15
+        backgroundView.tag = ViewsTag.kLoadingBackGroundViewTag.rawValue
+
+        addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { (make) in
+            make.centerX.centerY.equalToSuperview()
+            make.width.height.equalTo(100)
+        }
+        
+        backgroundView.addSubview(loadingView)
         loadingView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
-           loadingView.startAnimating()
-       } // addAnimatedLoadingView
+
+        loadingView.startAnimating()
+    } // addAnimatedLoadingView
        
        
        //==================================
        //MARK: Remove Activity Indicator View
        //==================================
        func removeActivityIndicatorView() {
-           guard let loadingView = viewWithTag(ViewsTag.kActivityIndicatorTag.rawValue) as? UIActivityIndicatorView else { return }
+        guard let backGroundLoadingView = viewWithTag(ViewsTag.kLoadingBackGroundViewTag.rawValue),
+            let loadingView = backGroundLoadingView.viewWithTag(ViewsTag.kActivityIndicatorTag.rawValue) as? UIActivityIndicatorView else { return }
            
            UIView.animate(withDuration: 0.2, animations: {
-               loadingView.alpha = 0
+               backGroundLoadingView.alpha = 0
            }) { _ in
                loadingView.stopAnimating()
-               loadingView.removeFromSuperview()
+               backGroundLoadingView.removeFromSuperview()
            }
        } // removeAnimatedLoadingView
     
@@ -113,8 +127,19 @@ extension UIView {
     func dropShadow() {
         layer.shadowOpacity = 1
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 3, height: 3)
-        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        layer.shadowRadius = 4
 
     } // dropShadow
+    
+    
+    func removeFromMainWindow(removeAfter: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + removeAfter) {
+            UIView.animate(withDuration: 1.5, animations: {
+                self.alpha = 0
+            }) { (_) in
+                self.removeFromSuperview()
+            }
+        }
+    }
 }
