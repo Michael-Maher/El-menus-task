@@ -11,6 +11,9 @@ import SnapKit
 
 class ItemViewController: UIViewController {
 
+    //========================
+    //MARK: Variables
+    //========================
     var tagItem: Items? {
         didSet{
             title = tagItem?.name ?? "Product"
@@ -18,10 +21,11 @@ class ItemViewController: UIViewController {
             descriptionLabel.text = tagItem?.description
         }
     }
-    
-    struct Constants {
-         static fileprivate let headerHeight: CGFloat = 300
-     }
+    let headerHeight: CGFloat = 300
+
+    //========================
+    //MARK: Outlets
+    //========================
     
     // A scroll view to allow the user to scroll up and down to trigger, respectively:
     // - the parallax effect.
@@ -39,21 +43,18 @@ class ItemViewController: UIViewController {
     // - a contained image view.
     private var headerContainerView: UIView = {
         let view = UIView()
-        view.clipsToBounds = true
         return view
     }()
     
     private var headerImageView: UIImageView = {
         let imageView = UIImageView()
            imageView.contentMode = .scaleAspectFill
-           imageView.clipsToBounds = true
         
            return imageView
     }()
 
     // A view that takes up the rest of the screen
     // and will host any additional content we need.
-    // For the sake of this sample, a UILabel would suffice.
     private var descriptionLabel: UILabel = {
         let label = UILabel()
         let titleFont = UIFont.preferredFont(forTextStyle: .title1)
@@ -64,6 +65,9 @@ class ItemViewController: UIViewController {
         return label
     }()
     
+    //========================
+    //MARK:View life cycle methods
+    //========================
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,6 +81,9 @@ class ItemViewController: UIViewController {
         self.navigationController?.setupClearNavigationBar()
     }
     
+    //========================
+    //MARK: UI configuration methods
+    //========================
     func setupViewLayout() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { (make) in
@@ -88,7 +95,7 @@ class ItemViewController: UIViewController {
             make.top.equalTo(view.snp.top)
             make.width.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(300)
+            make.height.equalTo(headerHeight)
         }
         
         headerContainerView.addSubview(headerImageView)
@@ -103,7 +110,6 @@ class ItemViewController: UIViewController {
             make.leading.equalToSuperview().offset(15)
             make.trailing.bottom.equalToSuperview().offset(-15)
          }
-        
     }
 
 }
@@ -111,20 +117,20 @@ class ItemViewController: UIViewController {
 extension ItemViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < 0.0 {
-            // Scrolling down: Scale
+            // Scrolling view down: image will Scale
             headerContainerView.snp.updateConstraints { (make) in
-                make.height.equalTo(Constants.headerHeight - scrollView.contentOffset.y)
+                make.height.equalTo(headerHeight - scrollView.contentOffset.y)
             }
         } else {
-            // Scrolling up: Parallax
+            // Scrolling view up: Parallax effect
             let parallaxFactor: CGFloat = 0.70
             let offsetY = scrollView.contentOffset.y * parallaxFactor
-            let minOffsetY: CGFloat = 20.0
+            let minOffsetY: CGFloat = 10.0
             let availableOffset = min(offsetY, minOffsetY)
-            let contentRectOffsetY = availableOffset / Constants.headerHeight
+            let contentRectOffsetY = availableOffset / headerHeight
             headerContainerView.snp.updateConstraints { (make) in
                 make.top.equalTo(view.snp.top)
-                make.height.equalTo(Constants.headerHeight - scrollView.contentOffset.y)
+                make.height.equalTo(headerHeight - scrollView.contentOffset.y)
             }
 
             headerImageView.layer.contentsRect =

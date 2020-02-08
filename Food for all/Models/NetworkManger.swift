@@ -20,15 +20,15 @@ struct NetworkManager {
     }()
     
     //============
-    //MARK: getReposList
+    //MARK: getTagsList
     //============
     static func getTagsList(page: Int, success: @escaping(_ success: [Tags]) -> Void, failure: @escaping(_ error: Error) -> Void ) {
         tagsProvider.request(
         .getTagsList(page: page)) { (result) in
             switch result {
-            case .success(let resonse):
+            case .success(let response):
                 do {
-                    let responseModel = try jsonDecoder.decode(TagsModel.self, from: resonse.data)
+                    let responseModel = try jsonDecoder.decode(TagsModel.self, from: response.data)
                     success(responseModel.tags ?? [])
                 } catch (let error) {
                     print(error.localizedDescription)
@@ -42,15 +42,15 @@ struct NetworkManager {
     } //getReposList
     
     //============
-    //MARK: getRepoCommits
+    //MARK: getSingleTagItems
     //============
     static func getSingleTagItems(tagName: String, success: @escaping(_ response: [Items]) -> Void, failure: @escaping (_ error: Error) -> Void) {
         tagsProvider.request(
         .getSingleTagItems(tagName: tagName)) { (result) in
             switch result {
-            case .success(let resonse):
+            case .success(let response):
                 do {
-                    let response = try jsonDecoder.decode(SingleTagItemsModel.self, from: resonse.data)
+                    let response = try jsonDecoder.decode(SingleTagItemsModel.self, from: response.data)
                     success(response.items ?? [])
                 } catch (let error) {
                     print(error.localizedDescription)
@@ -61,6 +61,6 @@ struct NetworkManager {
                 failure(error)
             }
         }
-    } // getRepoCommits
+    } // getSingleTagItems
 }
 

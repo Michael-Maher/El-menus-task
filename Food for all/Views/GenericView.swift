@@ -10,49 +10,13 @@ import UIKit
 import SnapKit
 
 class GenericView: UIView {
-//    var view = UIView()
-//    var label = UILabel()
-//
-//    static let shared = GenericView()
+
     
-    static func addGenericView(onView: UIView, isErrorOrLoading: Bool = true, textMsg: String = "Opps !!\nSomething went wrong", isPagination: Bool = false) -> UIView {
-        GenericView.removeGenericView(onView: onView)
-        let view = UIView()
-        let label = UILabel()
-        view.frame = onView.frame
-        view.tag = ViewsTag.kGenericViewTag.rawValue
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        if isErrorOrLoading  {
-            view.frame = onView.frame
-            view.addSubview(label)
-            label.snp.makeConstraints { (make) in
-                make.centerX.equalToSuperview()
-                make.centerY.equalToSuperview()
-            }
-            label.text = textMsg
-            label.textAlignment = .center
-            label.textColor = UIColor.black
-            label.numberOfLines = 0
-        } else {
-            if isPagination {
-                view.frame = CGRect(x: 0, y: 0, width: onView.frame.width, height: 44)
-                view.addActivityIndicator()
-            } else {
-                view.addAnimatedLoadingView(animationJSON: .foodAnimation)
-            }
-        }
-       return view
-    }
+    //==============
+    //MARK: Show Error Message For Time
+    //==============
     
-    static func removeGenericView(onView: UIView) {
-        if let genericViewFound = onView.viewWithTag(ViewsTag.kGenericViewTag.rawValue) {
-            genericViewFound.removeFromSuperview()
-        }
-    }
-    
-    
-    static func showErrorMsgForTime(errorMsg:String?, removeAfter:Double = 5.0) {
+    static func showErrorMsgForTime(errorMsg:String?, removeAfter:Double = 3.0) {
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight: CGFloat = 100.0
         let view = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))

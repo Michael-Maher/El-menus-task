@@ -42,7 +42,6 @@ class HomeViewController: UIViewController {
     //========================
     private var homeViewModel: HomeViewModel?
     
-    
     //========================
     //MARK: Init methods
     //========================
@@ -94,7 +93,7 @@ class HomeViewController: UIViewController {
     func fetchData() {
         refreshControl.endRefreshing() // remove refresh control if exists
         view.addAnimatedLoadingView(animationJSON: .foodAnimation)
-        homeViewModel?.initialDataLoading(completion: { [unowned self] (_) in // make initial request to get tag list and first tag items. This colsure to know when requests finished to remove the animated view.
+        homeViewModel?.initialDataLoading(completion: { [unowned self] (_) in // make initial request to get tag list and first tag items. This closure to know when requests finished to remove the animated view.
             self.view.removeAnimatedLoadingView()
         })
         self.homeViewModel?.delegateHomeModelToHomeController = self // This delegate to inform home view controller that home view model has finished single tag items fetching.
@@ -107,25 +106,25 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let viewModelItems = homeViewModel?.singleTagItems
-        return (viewModelItems?.count ?? 0) + 1
-    }
+        return (viewModelItems?.count ?? 0) + 1 // Total table view rows count = single tag items count + 1 (for tags list cell.. first cell)
+    } // number of rows
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.row == 0 { // tags list cell
             guard let cell = tableView.dequeueReusableCell(withIdentifier:TagsTableCell.identifier, for: indexPath)
                 as? TagsTableCell,
                 let viewModel = homeViewModel else {
                     return UITableViewCell()
             }
-            cell.setupViewModel(viewModel: viewModel)
-            homeViewModel?.setupTagsCellDelegate(cell: cell)
+            cell.setupViewModel(viewModel: viewModel) // pass our view model to cell to set corresponding delegate to it
+            homeViewModel?.setupTagsCellDelegate(cell: cell) // pass cell to view model to set corresponding delegate to it
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:TagItemsTableCell.identifier, for: indexPath)
                 as? TagItemsTableCell,
             let singleTagItems = homeViewModel?.singleTagItems[indexPath.row - 1] else {
                     return UITableViewCell()
-            }
+            } // (indexPath - 1) as we start single tag items from index 1 as index 0 was for tags list
             cell.configureCell(withTagItem: singleTagItems)
             
             return cell
@@ -135,33 +134,35 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 //============================
-//MARK: Delegate Methdos
+//MARK: Delegate Methods
 //============================
 extension HomeViewController: HomeModelToHomeControllerDelegate, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = homeViewModel?.singleTagItems[indexPath.row - 1] else { return }
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true) // remove selection mark
         let itemViewController = ItemViewController()
-        itemViewController.tagItem = item
+        itemViewController.tagItem = item // pass tag to ItemViewController.
         self.navigationController?.pushViewController(itemViewController, animated: true)
-    }
+    } // didSelectRowAt
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? TagItemsTableCell, indexPath.row != 0 else { return }
         // Animate cells
         let animation = AnimationFactory.makeSlideIn(duration: 0.3, delayFactor: 0.02)
         let animator = Animator(animation: animation)
-        animator.animate(cell: cell, at: indexPath, in: self.tagItemsTableView)
-    }
+        animator.animate(cell: cell, at: indexPath, in: self.tagItemsTableView) // show this cell with slide in effect
+    } // willDisplay
     
+    
+    //====================================================================================
+    //MARK: Delegate Method from Tags Table cell (from 2 scenarios: 1- initial data loading OR 2- selecting any tag)
+    //====================================================================================
     func didFetchSingleTagData(singeTagItems: [Items]?, errorMsg: String?) {
         if singeTagItems != nil {
-            DispatchQueue.main.async {
-                self.tagItemsTableView.reloadData()
-            }
+            self.tagItemsTableView.reloadData()
         } else {
-            GenericView.showErrorMsgForTime(errorMsg: errorMsg)
+            GenericView.showErrorMsgForTime(errorMsg: errorMsg) // If error occurred, just show error view
         }
     }
     

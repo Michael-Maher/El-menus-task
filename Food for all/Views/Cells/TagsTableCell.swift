@@ -9,20 +9,29 @@
 import Foundation
 import UIKit
 
+//==============
+//MARK: These methods to handle actions from Tags Table Cell to home view model
+//==============
 protocol TagsTableCellToHomeModel {
-    func didSelectTag (tagName: String)
-    func fetchTagsNextPage ()
+        func didSelectTag (tagName: String)
+        func fetchTagsNextPage()
 }
 
 class TagsTableCell: UITableViewCell {
     
-    static let identifier = "TagsTableCell"
+    //========================
+    //MARK: Variables
+    //========================
+    static let identifier = "TagsTableCell" // cell identifier
     var delegateTagsCellToHomeModel: TagsTableCellToHomeModel?
     var selectedIndexPath: IndexPath?
-    let firstCell = IndexPath(row: 0, section: 0)
-
+    let firstCell = IndexPath(row: 0, section: 0) // pre selected cell in the tags list
+    
     var homeViewModel: HomeViewModel?
     
+    //========================
+    //MARK: Outlets
+    //========================
     lazy var tagsCollectionView: UICollectionView = {
         let width = UIScreen.main.bounds.width * 0.25
         let height = width * 1.75
@@ -39,12 +48,15 @@ class TagsTableCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = false
-
+        collectionView.allowsSelection = true
+        
         collectionView.register(TagsCollectionCell.self, forCellWithReuseIdentifier: TagsCollectionCell.identifier)
         return collectionView
     }()
     
-    
+    //========================
+    //MARK: Init methods
+    //========================
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureCellLayout()
@@ -54,86 +66,20 @@ class TagsTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension TagsTableCell {
+    //========================
+    //MARK: UI Configurations methods
+    //========================
     func configureCellLayout() {
-     
         self.addSubview(tagsCollectionView)
         tagsCollectionView.snp.makeConstraints { (make) in
             make.height.equalTo(170)
             make.edges.equalToSuperview()
         }
-    }
+    } // configureCellLayout
     
     func setupViewModel(viewModel:HomeViewModel) {
         self.homeViewModel = viewModel
         self.homeViewModel?.delegateHomeModelToTagsTableCell = self
-    }
-}
-
-
-
-extension TagsTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.homeViewModel?.tagsList.count ?? 0
-    }
+    } // setupViewModel
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagsCollectionCell.identifier, for: indexPath)
-            as? TagsCollectionCell,
-            let singleTag = self.homeViewModel?.tagsList[indexPath.row] else {
-                return UICollectionViewCell()
-        }
-        
-        if selectedIndexPath == nil {
-            selectedIndexPath = firstCell
-            collectionView.selectItem(at: firstCell, animated: false, scrollPosition: .left)
-        }
-        cell.configureCell(withTag: singleTag, isSelected: selectedIndexPath == indexPath)
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let tagList = homeViewModel?.tagsList else { return }
-        
-        if indexPath.row == tagList.count - 1 {
-            delegateTagsCellToHomeModel?.fetchTagsNextPage()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? TagsCollectionCell,
-        let singleTag = self.homeViewModel?.tagsList[indexPath.row] else { return }
-        
-        cell.cellSelectionConfiguration()
-        delegateTagsCellToHomeModel?.didSelectTag(tagName: singleTag.tagName ?? "")
-        self.selectedIndexPath = indexPath
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-         guard let cell = collectionView.cellForItem(at: indexPath) as? TagsCollectionCell else { return }
-         cell.cellDeSelectionConfiguration()
-         self.selectedIndexPath = nil
-    }
-}
-
-extension TagsTableCell: HomeModelToTagsTableCellDelegate {
-    func didReloadData() {
-        selectedIndexPath = nil
-        DispatchQueue.main.async {
-            self.tagsCollectionView.reloadData()
-        }
-    }
-    
-    func didFetchTagsList(tags: [Tags]?, errorMsg: String?) {
-        if tags != nil {
-            DispatchQueue.main.async {
-                self.tagsCollectionView.reloadData()
-            }
-        } else {
-            GenericView.showErrorMsgForTime(errorMsg: errorMsg)
-        }
-    }
 }

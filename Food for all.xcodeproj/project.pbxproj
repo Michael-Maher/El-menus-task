@@ -15,6 +15,8 @@
 		4C5DB46E23EE091F00060830 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB46D23EE091F00060830 /* UIApplication.swift */; };
 		4C5DB47823EF06DF00060830 /* Food_for_allTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB47723EF06DF00060830 /* Food_for_allTests.swift */; };
 		4C5DB48623EF06F400060830 /* Food_for_allUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB48523EF06F400060830 /* Food_for_allUITests.swift */; };
+		4C5DB48E23EF418700060830 /* TagsTableCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB48D23EF418700060830 /* TagsTableCellExtensions.swift */; };
+		4C5DB49023EF6A5900060830 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB48F23EF6A5900060830 /* UICollectionView.swift */; };
 		4CE8976423E9AD6100989A84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976323E9AD6100989A84 /* AppDelegate.swift */; };
 		4CE8976823E9AD6100989A84 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976723E9AD6100989A84 /* HomeViewController.swift */; };
 		4CE8976E23E9AD6100989A84 /* Food_for_all.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8976C23E9AD6100989A84 /* Food_for_all.xcdatamodeld */; };
@@ -71,6 +73,8 @@
 		4C5DB48323EF06F400060830 /* Food for allUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food for allUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5DB48523EF06F400060830 /* Food_for_allUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food_for_allUITests.swift; sourceTree = "<group>"; };
 		4C5DB48723EF06F400060830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C5DB48D23EF418700060830 /* TagsTableCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsTableCellExtensions.swift; sourceTree = "<group>"; };
+		4C5DB48F23EF6A5900060830 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		4CE8976023E9AD6100989A84 /* Food for all.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food for all.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8976323E9AD6100989A84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE8976723E9AD6100989A84 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				4CE897DC23EA090800989A84 /* TagsCollectionCell.swift */,
 				4CE897DF23EABB0500989A84 /* TagItemsTableCell.swift */,
 				4CE897ED23EADC5600989A84 /* TagsTableCell.swift */,
+				4C5DB48D23EF418700060830 /* TagsTableCellExtensions.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				4CE897E223EABC6A00989A84 /* UIImageView.swift */,
 				4CE897E123EABC6A00989A84 /* UIView.swift */,
 				4C5DB46B23EDDC5700060830 /* UINavigationController.swift */,
+				4C5DB48F23EF6A5900060830 /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 			files = (
 				4C5DB46A23ED834400060830 /* GenericView.swift in Sources */,
 				4CE8976E23E9AD6100989A84 /* Food_for_all.xcdatamodeld in Sources */,
+				4C5DB48E23EF418700060830 /* TagsTableCellExtensions.swift in Sources */,
 				4CE897DD23EA090800989A84 /* TagsCollectionCell.swift in Sources */,
 				4CE897E423EABC6A00989A84 /* UIImageView.swift in Sources */,
 				4C5DB46423EC032900060830 /* HomeViewModel.swift in Sources */,
@@ -517,6 +524,7 @@
 				4CE897E023EABB0500989A84 /* TagItemsTableCell.swift in Sources */,
 				4C5DB46723EC571A00060830 /* ItemViewController.swift in Sources */,
 				4CE897EC23EABF1300989A84 /* Constants.swift in Sources */,
+				4C5DB49023EF6A5900060830 /* UICollectionView.swift in Sources */,
 				4C5DB46123EB71B600060830 /* AnimationFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

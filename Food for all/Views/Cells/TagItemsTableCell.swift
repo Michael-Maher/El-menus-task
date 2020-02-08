@@ -10,9 +10,14 @@ import UIKit
 import SnapKit
 
 class TagItemsTableCell: UITableViewCell {
-    
+    //========================
+    //MARK: Variables
+    //========================
     static let identifier = "TagItemsTableCell"
     
+    //========================
+    //MARK: Outlets
+    //========================
     private var backGroundView: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
@@ -48,7 +53,7 @@ class TagItemsTableCell: UITableViewCell {
         descLabel.numberOfLines = 4
         descLabel.lineBreakMode = .byTruncatingTail
         descLabel.textAlignment = .left
-        descLabel.textColor = #colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1)
+        descLabel.textColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
         return descLabel
     }()
     
@@ -61,29 +66,24 @@ class TagItemsTableCell: UITableViewCell {
         return stack
         }()
     
+    //========================
+    //MARK: Init methods
+    //========================
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCellLayout()
-//        configureFontsAndUI()
     }
         
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
 }
 
 extension TagItemsTableCell {
+    //========================
+    //MARK: UI configuration
+    //========================
     func setupCellLayout() {
-        
-        
         self.addSubview(backGroundView)
         backGroundView.snp.makeConstraints { (make) in
             make.leading.top.equalToSuperview().offset(8)
@@ -106,7 +106,7 @@ extension TagItemsTableCell {
         }
         
         tagItemInfoStackView.addArrangedSubview(tagItemTitleLabel)
-        tagItemInfoStackView.addArrangedSubview(tagItemDescriptionLabel)
+        tagItemInfoStackView.addArrangedSubview(tagItemDescriptionLabel) // add title and description into vertical stack
 
         backGroundView.addSubview(tagItemInfoStackView)
         tagItemInfoStackView.snp.makeConstraints { (make) in
@@ -114,15 +114,13 @@ extension TagItemsTableCell {
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-5)
             make.centerY.equalTo(tagItemImageView.snp.centerY)
             make.top.bottom.equalTo(tagItemImageView)
-//            make
         }
-    }
+    } // setupCellLayout
     
     func configureCell(withTagItem: Items) {
         self.tagItemImageView.setup(withImageUrlPath: withTagItem.photoUrl ?? "", cornerRadius: 15)
         self.arrowImageView.image = UIImage(named: "arrow")
         self.tagItemTitleLabel.text = withTagItem.name
         self.tagItemDescriptionLabel.text = withTagItem.description
-        
-    }
+    } // configureCell
 }

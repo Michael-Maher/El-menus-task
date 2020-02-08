@@ -21,7 +21,7 @@ extension UIView {
     //MARK: Add Activity Indicator View
     //==================================
     func addActivityIndicator() {
-        if let foundView = self.viewWithTag(ViewsTag.kActivityIndicatorTag.rawValue) {
+        if let foundView = self.viewWithTag(ViewsTag.kLoadingBackGroundViewTag.rawValue) {
             foundView.removeFromSuperview()
         }
         let loadingView = UIActivityIndicatorView(style: .whiteLarge)
@@ -132,7 +132,9 @@ extension UIView {
 
     } // dropShadow
     
-    
+    //=================
+    //MARK: Remove From Main Window
+    //=================
     func removeFromMainWindow(removeAfter: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + removeAfter) {
             UIView.animate(withDuration: 1.5, animations: {

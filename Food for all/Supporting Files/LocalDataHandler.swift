@@ -16,11 +16,10 @@ protocol CachePolicyGettable {
 class LocalDataHandler: PluginType {
     
     static let shared = LocalDataHandler()
-    var userDefualts = UserDefaults.standard
     
-    ///////////////////////////////////
-    ///MARK : - API caching
-    ///////////////////////////////////
+    //=======================
+    //MARK:-  API caching
+    //=======================
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         if let cacheableTarget = target as? CachePolicyGettable {
             var mutableRequest = request
