@@ -11,12 +11,14 @@
 1. [Support](#Support)
 1. [Contributers](#Contributors)
 
-![alt text](https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg)
+
+<img src="https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg" width="300" height="300" />
+
 
 
 # About the Project
    - (Food for all)  project mainly is El-Menus task and its goal to show list of food tags and each tag contains its items.
-   **I choosed Icons, splash screen and app name to make a wonderful app :).
+   **I choosed Icons, splash screen and app name to make a wonderful app :).**
  
 # Requirements
 
@@ -35,7 +37,7 @@
 - Simple doucmentation and comments
 
 
-![](Gif/Feb-09-2020-08-41-40.gif)
+![](Gif/demo.gif)
 
 
 # Project flow description:
@@ -47,18 +49,19 @@
 
 # CI/CD integration:
 1. setup fastlane <https://docs.fastlane.tools/getting-started/ios/setup/>
-1. I've made a script to do these tasks to automatically make tests:
+1. I've made a script to do Unit/UI tests to automatically :
 
 * To run the script just put this command in terminal :
    `sh Run_automated_tests.sh`
    
 * This script includes :
 
-        init fastlane
-        export PATH="$HOME/.fastlane/bin:$PATH"  
+        export PATH="$HOME/.fastlane/bin:$PATH"
+        fastlane init
         fastlane test
 NOTE :
-in case of this script doesn't work just run the above commands individually in terminal in project folder.
+1. in case of this script doesn't work just run the above commands individually in terminal in project folder.
+1. After testing process finished, you will have report for all tests in Fastlane folder in the project **Check it.**
 
 # Support 
 Don't hesitate to reach me for any request or information  <michael.m.morkos@gmail.com>
