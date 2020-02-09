@@ -12,7 +12,7 @@
 1. [Contributers](#Contributors)
 
 
-<img src="https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg" width="200" height="100" />
+<img src="https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg" width="300" height="300" />
 
 
 
