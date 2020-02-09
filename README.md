@@ -37,7 +37,7 @@
 - Simple doucmentation and comments
 
 
-![](Gif/demo.gif)
+![](https://gfycat.com/deliriouswilddogwoodclubgall)
 
 
 # Project flow description:
