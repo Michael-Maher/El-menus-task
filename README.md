@@ -11,7 +11,9 @@
 1. [Support](#Support)
 1. [Contributers](#Contributors)
 
-![alt text](https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg = 200x100)
+
+<img src="https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg" width="200" height="100" />
+
 
 
 # About the Project
