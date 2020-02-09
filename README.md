@@ -36,8 +36,7 @@
 - CI/CD using fastlane
 - Simple doucmentation and comments
 
-
-![Alt Text](https://media.giphy.com/media/VJI2REALY8izKWKzRj/giphy.gif)
+<img src="https://media.giphy.com/media/VJI2REALY8izKWKzRj/giphy.gif" width="100" height="300" />
 
 
 # Project flow description:
