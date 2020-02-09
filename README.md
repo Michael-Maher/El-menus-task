@@ -36,8 +36,7 @@
 - CI/CD using fastlane
 - Simple doucmentation and comments
 
-<img src="https://media.giphy.com/media/VJI2REALY8izKWKzRj/giphy.gif" width="100" height="300" />
-
+![](Gif/demo.gif)
 
 # Project flow description:
 1. In upper navigation bar use search button to convert between on fly searching (by changing characters in search bar) and manual search (when pressing search button in keyboard).. DEFAULT is on fly search.
