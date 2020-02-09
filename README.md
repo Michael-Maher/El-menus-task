@@ -16,7 +16,7 @@
 
 # About the Project
    - (Food for all)  project mainly is El-Menus task and its goal to show list of food tags and each tag contains its items.
-   I choosed Icons and splash screen and app name to make a wonderful app.
+   **I choosed Icons, splash screen and app name to make a wonderful app :).
  
 # Requirements
 
