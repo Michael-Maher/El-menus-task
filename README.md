@@ -35,7 +35,7 @@
 - Simple doucmentation and comments
 
 
-![](Gif/Feb-09-2020-08-41-40.gif)
+![](Gif/demo.gif)
 
 
 # Project flow description:
