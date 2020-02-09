@@ -56,8 +56,8 @@
    
 * This script includes :
 
-        init fastlane
-        export PATH="$HOME/.fastlane/bin:$PATH"  
+        export PATH="$HOME/.fastlane/bin:$PATH"
+        fastlane init
         fastlane test
 NOTE :
 in case of this script doesn't work just run the above commands individually in terminal in project folder.
