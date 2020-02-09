@@ -18,7 +18,7 @@
 
 # About the Project
    - (Food for all)  project mainly is El-Menus task and its goal to show list of food tags and each tag contains its items.
-   **I choosed Icons, splash screen and app name to make a wonderful app :).
+   **I choosed Icons, splash screen and app name to make a wonderful app :).**
  
 # Requirements
 
@@ -61,7 +61,7 @@
         fastlane test
 NOTE :
 1. in case of this script doesn't work just run the above commands individually in terminal in project folder.
-1. After testing process finished, you will have report for all tests in Fastlane folder in the project **Check it.
+1. After testing process finished, you will have report for all tests in Fastlane folder in the project **Check it.**
 
 # Support 
 Don't hesitate to reach me for any request or information  <michael.m.morkos@gmail.com>
