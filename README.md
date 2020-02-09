@@ -49,7 +49,7 @@
 
 # CI/CD integration:
 1. setup fastlane <https://docs.fastlane.tools/getting-started/ios/setup/>
-1. I've made a script to do these tasks to automatically make tests:
+1. I've made a script to do Unit/UI tests to automatically :
 
 * To run the script just put this command in terminal :
    `sh Run_automated_tests.sh`
