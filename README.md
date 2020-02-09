@@ -34,7 +34,9 @@
 - CI/CD using fastlane
 - Simple doucmentation and comments
 
-![Food for all Demo](Gif/Feb-09-2020 08-41-40.gif)
+
+![](Gif/Feb-09-2020 08-41-40.gif)
+
 
 # Project flow description:
 1. In upper navigation bar use search button to convert between on fly searching (by changing characters in search bar) and manual search (when pressing search button in keyboard).. DEFAULT is on fly search.
