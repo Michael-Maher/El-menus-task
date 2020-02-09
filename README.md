@@ -60,7 +60,8 @@
         fastlane init
         fastlane test
 NOTE :
-in case of this script doesn't work just run the above commands individually in terminal in project folder.
+1. in case of this script doesn't work just run the above commands individually in terminal in project folder.
+1. After testing process finished, you will have report for all tests in Fastlane folder in the project "Check it".
 
 # Support 
 Don't hesitate to reach me for any request or information  <michael.m.morkos@gmail.com>
