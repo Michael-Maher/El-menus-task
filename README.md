@@ -3,8 +3,6 @@
 ![travis build](https://img.shields.io/badge/Swift-5-F16D39.svg?style=flat) 
 ![travis build](https://img.shields.io/badge/version-1.0-F16D39.svg?style=flat&color=green)
 
-![alt text](https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg)
-
 ## Table of Contents
 1. [About the Project](#About-the-project)
 1. [Requirements](#Requirements)
@@ -13,16 +11,18 @@
 1. [Support](#Support)
 1. [Contributers](#Contributors)
 
+![alt text](https://cdn4.vectorstock.com/i/1000x1000/31/73/fast-food-combo-icon-hamburge-pizza-drink-vector-21933173.jpg)
+
+
 # About the Project
-   - (Food for all) project mainly is El-Menus task and its goal to show list of food tags and each tag contains its items.
+   - (Food for all)  project mainly is El-Menus task and its goal to show list of food tags and each tag contains its items.
+   I choosed Icons and splash screen and app name to make a wonderful app.
  
 # Requirements
 
 - iOS 11.0 or later
 - Xcode 11.0 or later
 - Swift 5.0 or later
-
-![](name-of-giphy.gif)
 
 
 # Project included features
