@@ -37,7 +37,7 @@
 - Simple doucmentation and comments
 
 
-![](https://gfycat.com/deliriouswilddogwoodclubgall)
+![Alt Text](https://media.giphy.com/media/VJI2REALY8izKWKzRj/giphy.gif)
 
 
 # Project flow description:
